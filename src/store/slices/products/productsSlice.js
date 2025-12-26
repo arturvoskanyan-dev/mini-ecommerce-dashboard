@@ -10,7 +10,16 @@ const initialState = {
 const productsSlice = createSlice({
     name: "productsSlice",
     initialState,
-    reducers: {},
+    reducers: {
+        incrementProductCount: (state, action) => {
+            const product = state.products.find((p) => p.id === action.payload);
+            if(product) product.count += 1
+        },
+        decrementProductCount: (state, action) => {
+            const product = state.products.find((p) => p.id === action.payload);
+            if(product && product.count > 1) product.count -= 1;
+        }
+    },
     extraReducers: (builder) => {
         builder
         .addCase(getProducts.pending, (state) => {
@@ -18,7 +27,8 @@ const productsSlice = createSlice({
             state.error = null;
         })
         .addCase(getProducts.fulfilled, (state, action) => {
-            state.products = action.payload;
+            // add a count to each product
+            state.products = action.payload.map((product) => ({...product, count: 1}));
             state.loading = false;
         })
         .addCase(getProducts.rejected, (state, action) => {
@@ -28,4 +38,5 @@ const productsSlice = createSlice({
     }
 })
 
+export const {incrementProductCount, decrementProductCount} = productsSlice.actions;
 export default productsSlice.reducer;
