@@ -10,3 +10,13 @@ export const getProducts = createAsyncThunk(
         return data;
     }
 )
+
+export const getProductById = createAsyncThunk(
+    "get/product/id",
+    async(id) => {
+        const response = await API.getProductById(id);
+        const data = await response.json();
+
+        return data;
+    }
+)

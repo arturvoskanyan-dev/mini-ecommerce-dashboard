@@ -1,10 +1,15 @@
+import { Route, Routes } from 'react-router-dom';
 import './App.css'
-import Products from './components/Products';
+import Home from './pages/Home';
+import ProductDetails from './pages/ProductDetails';
 
 function App() {
   return (
     <>
-      <Products />
+      <Routes>
+        <Route index element={<Home />} />
+        <Route path='/product/:id' element={<ProductDetails />} />
+      </Routes>
     </>
   )
 }
