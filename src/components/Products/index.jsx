@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import styles from "./Products.module.scss";
 import { useDispatch, useSelector } from 'react-redux';
 import { getProducts } from '../../store/slices/products/productsThunk';
+import Card from '../Card';
 
 export default function Products() {
     const { products, loading, error } = useSelector((state) => state.products);
@@ -19,9 +20,13 @@ export default function Products() {
         <div className={styles.productsContainer}>
             {
                 products?.map((product) => (
-                    <div key={product.id}>
-                        {product.title}
-                    </div>
+                    <Card 
+                        key={product.id}
+                        title={product.title}
+                        image={product.image}
+                        price={product.price}
+                        rating={product.rating}
+                    />
                 ))
             }
         </div>
