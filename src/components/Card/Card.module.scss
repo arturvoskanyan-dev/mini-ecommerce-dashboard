@@ -1,4 +1,5 @@
-@import "../../styles/variables.scss";
+// @import "../../styles/variables.scss";
+@use "../../styles/variables" as v;
 
 .cardContainer {
     max-width: 250px;
@@ -6,8 +7,8 @@
     display: flex;
     flex-direction: column;
     gap: 24px;
-    border: 1px solid $primary-gray;
-    border-radius: $radius-md;
+    border: 1px solid v.$primary-gray;
+    border-radius: v.$radius-md;
 
     .cardImage {
         width: 200px;
@@ -16,7 +17,7 @@
     }
     
     .cardTitle {
-        font-size: $font-xl;
+        font-size: v.$font-xl;
     }
 
     .cardContent {
@@ -31,11 +32,11 @@
     }
 
     .cardPrice {
-        color: $primary-gray;
+        color: v.$primary-gray;
     }
 
     .cardRating {
-        color: $primary-gold;
+        color: v.$primary-gold;
     }
 }
 
