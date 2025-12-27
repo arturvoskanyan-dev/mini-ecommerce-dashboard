@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import Products from '../../components/Products'
 import Search from '../../components/Search'
 import Filter from '../../components/Filter';
+import styles from "./Home.module.scss";
 
 export default function Home() {
   const [filters, setFilters] = useState({
@@ -14,13 +15,17 @@ export default function Home() {
   })
 
   console.log(filters);
-  
+
 
   return (
-    <>
-      <Search filters={filters} setFilters={setFilters} />
-      <Filter filters={filters} setFilters={setFilters} />
-      <Products filters={filters} />
-    </>
+    <div className={styles.container}>
+      <aside className={styles.filtersSidebar}>
+        <Filter filters={filters} setFilters={setFilters} />
+      </aside>
+      <main className={styles.content}>
+        <Search filters={filters} setFilters={setFilters} />
+        <Products filters={filters} />
+      </main>
+    </div>
   )
 }

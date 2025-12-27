@@ -1,0 +1,75 @@
+@use "../../styles/variables" as v;
+
+.container {
+    padding: 24px;
+    // min-width: 300px;
+    // width: 100%;
+    width: 350px;
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    border: 1px solid v.$primary-gray;
+    border-radius: v.$radius-md;
+
+    .title {
+        font-size: v.$font-2xl;
+        // font-weight: v.$font-semibold;
+    }
+
+    .sectionContainer {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+
+        .sectionTitle {
+            font-size: v.$font-xl;
+        }
+
+        .categoryContainer {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+
+            .categoryLabel {
+                font-size: v.$font-lg;
+                font-weight: v.$font-semibold;
+                display: flex;
+                gap: 6px;
+
+                .checkbox {
+                    width: 16px;
+                }
+            }
+        }
+
+        .priceContent {
+            display: flex;
+            gap: 12px;
+
+            .priceInfo {
+                display: flex;
+                flex-direction: column;
+                // align-items: center;
+
+                .priceInput {
+                    padding: 8px 12px;
+                    max-width: 120px;
+                    border-radius: v.$radius-md;
+                }
+            }
+        }
+
+        .ratingContent {
+            display: flex;
+            gap: 8px;
+
+            .ratingLabel {
+                font-size: v.$font-lg;
+                font-weight: v.$font-semibold;
+            }
+        }
+
+    }
+
+}

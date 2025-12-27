@@ -50,7 +50,7 @@ export default function Products({ filters }) {
     console.log(1);
 
     return (
-        <div className={styles.productsContainer}>
+        <div className={styles.container}>
             {
                 filteredProducts?.map((product) => (
                     <Card

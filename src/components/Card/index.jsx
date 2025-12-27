@@ -26,17 +26,17 @@ export default function Card({ title, image, price, rating, product }) {
 
     return (
         <NavLink to={`/product/${product.id}`} className={styles.navLink}>
-            <div className={styles.cardContainer}>
+            <div className={styles.container}>
                 <img
                     src={image}
-                    className={styles.cardImage}
+                    className={styles.image}
                     alt={`Image ${title}`}
                 />
-                <div className={styles.cardContent}>
-                    <h3 className={styles.cardTitle}>{title}</h3>
-                    <div className={styles.cardInfo}>
-                        <h3 className={styles.cardPrice}>${price}</h3>
-                        <span className={styles.cardRating}>{rating.rate}</span>
+                <div className={styles.content}>
+                    <h3 className={styles.title}>{title}</h3>
+                    <div className={styles.info}>
+                        <h3 className={styles.price}>${price}</h3>
+                        <span className={styles.rating}>{rating.rate}</span>
                     </div>
                     <button onClick={handleAddToCart}>add cart</button>
                     <button onClick={handleRemove}>Remove</button>

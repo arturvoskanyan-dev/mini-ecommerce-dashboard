@@ -1,7 +1,7 @@
 // @import "../../styles/variables.scss";
 @use "../../styles/variables" as v;
 
-.cardContainer {
+.container {
     max-width: 250px;
     padding: 12px;
     display: flex;
@@ -10,32 +10,32 @@
     border: 1px solid v.$primary-gray;
     border-radius: v.$radius-md;
 
-    .cardImage {
+    .image {
         width: 200px;
         height: 180px;
         object-fit: contain;
     }
     
-    .cardTitle {
+    .title {
         font-size: v.$font-xl;
     }
 
-    .cardContent {
+    .content {
         display: flex;
         flex-direction: column;
         gap: 10px;
     }
 
-    .cardInfo {
+    .info {
         display: flex;
         justify-content: space-between;
     }
 
-    .cardPrice {
+    .price {
         color: v.$primary-gray;
     }
 
-    .cardRating {
+    .rating {
         color: v.$primary-gold;
     }
 }
