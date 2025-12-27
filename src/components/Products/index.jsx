@@ -1,10 +1,10 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useMemo } from 'react'
 import styles from "./Products.module.scss";
 import { useDispatch, useSelector } from 'react-redux';
 import { getProducts } from '../../store/slices/products/productsThunk';
 import Card from '../Card';
 
-export default function Products({filters}) {
+export default function Products({ filters }) {
     const { products, loading, error } = useSelector((state) => state.products);
     const dispatch = useDispatch();
 
@@ -12,21 +12,34 @@ export default function Products({filters}) {
         dispatch(getProducts())
     }, [dispatch])
 
-    // console.log(products, loading, error);
+    const filteredProducts = useMemo(() => {
+        if(!products) return [];
+
+        let result = products;
+
+        if(filters.search) {
+            result = result.filter((product) => (
+                product.title.toLowerCase().includes(filters.search.toLowerCase())
+            ))
+        }
+
+        if(filters.category.length > 0) {
+            result = result.filter((product) => filters.category.includes(product.category));
+        }
+
+        return result;
+    }, [products, filters])
+
     if (loading) return <div>Loading...</div>
     if (error) return <div>Error... {error}</div>
 
-    const filteredProducts = products?.filter((product) => (
-        product.title.toLowerCase().includes(filters.search.toLowerCase())
-    ))
-
-    console.log(1);
+    // console.log(1);
 
     return (
         <div className={styles.productsContainer}>
             {
                 filteredProducts?.map((product) => (
-                    <Card 
+                    <Card
                         key={product.id}
                         product={product}
                         title={product.title}
