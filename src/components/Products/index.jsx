@@ -26,6 +26,11 @@ export default function Products({ filters }) {
         if(filters.category.length > 0) {
             result = result.filter((product) => filters.category.includes(product.category));
         }
+        
+        result = result.filter((product) => (
+            product.price >= filters.minPrice &&
+            product.price <= filters.maxPrice
+        ))
 
         return result;
     }, [products, filters])
@@ -33,7 +38,7 @@ export default function Products({ filters }) {
     if (loading) return <div>Loading...</div>
     if (error) return <div>Error... {error}</div>
 
-    // console.log(1);
+    console.log(1);
 
     return (
         <div className={styles.productsContainer}>

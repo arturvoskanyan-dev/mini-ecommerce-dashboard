@@ -8,7 +8,7 @@ export default function Home() {
     search: "",
     category: [],
     minPrice: 0,
-    maxPrice: Infinity,
+    maxPrice: 1000,
     // sort: "" 
   })
 
