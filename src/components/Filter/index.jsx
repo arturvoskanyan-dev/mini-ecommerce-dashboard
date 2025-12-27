@@ -50,6 +50,13 @@ export default function Filter({ filters, setFilters }) {
         setLocalMax(value < localMin ? localMin : value)
     }
 
+    const handleChangeRating = (e) => {
+        setFilters((prev) => ({
+            ...prev,
+            minRating: +e.target.value
+        }))
+    }
+
     return (
         <div>
             <div>
@@ -90,6 +97,24 @@ export default function Filter({ filters, setFilters }) {
                         onChange={handleChangeMaxPrice}
                         onMouseUp={handleMouseUp}
                     />
+                </div>
+            </div>
+            <div>
+                <h3>Rating</h3>
+                <div>
+                    <label htmlFor='ratingFilter'>Minimum rating:</label>
+                    <select
+                        id='ratingFilter'
+                        value={filters.minRating}
+                        onChange={handleChangeRating}
+                    >   
+                        <option value={0}>All</option>
+                        <option value={1}>1</option>
+                        <option value={2}>2</option>
+                        <option value={3}>3</option>
+                        <option value={4}>4</option>
+                        <option value={5}>5</option>
+                    </select>
                 </div>
             </div>
         </div>

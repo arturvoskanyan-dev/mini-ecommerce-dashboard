@@ -12,21 +12,30 @@ export default function Products({ filters }) {
         dispatch(getProducts())
     }, [dispatch])
 
+    // filter products and use useMemo to avoid re-renders
     const filteredProducts = useMemo(() => {
         if(!products) return [];
 
         let result = products;
 
+        // filter by search query
         if(filters.search) {
             result = result.filter((product) => (
                 product.title.toLowerCase().includes(filters.search.toLowerCase())
             ))
         }
 
+        //filter by selected categories
         if(filters.category.length > 0) {
             result = result.filter((product) => filters.category.includes(product.category));
         }
+
+        // filter by minimum rating
+        if(filters.minRating > 0) {
+            result = result.filter((product) => product.rating.rate >= filters.minRating);
+        }
         
+        // filter by price range
         result = result.filter((product) => (
             product.price >= filters.minPrice &&
             product.price <= filters.maxPrice

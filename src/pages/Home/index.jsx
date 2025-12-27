@@ -9,6 +9,7 @@ export default function Home() {
     category: [],
     minPrice: 0,
     maxPrice: 1000,
+    minRating: 0,
     // sort: "" 
   })
 
