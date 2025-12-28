@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getProducts } from '../../store/slices/products/productsThunk';
 import Card from '../Card';
 
-export default function Products({ filters }) {
+export default function Products({ filters, sorts }) {
     const { products, loading, error } = useSelector((state) => state.products);
     const dispatch = useDispatch();
 
@@ -18,6 +18,7 @@ export default function Products({ filters }) {
 
         let result = products;
 
+                                /* Filter */
         // filter by search query
         if(filters.search) {
             result = result.filter((product) => (
@@ -41,8 +42,33 @@ export default function Products({ filters }) {
             product.price <= filters.maxPrice
         ))
 
+                                /* Sort */        
+        sorts.forEach((sort) => {
+            if(!sort.enabled) return;
+
+            result.sort((a, b) => {
+                const criteria = sort.criteria;
+                const direction = sort.direction;
+
+                if(criteria === "title") {
+                    if(a.title < b.title) return direction === "asc" ? -1 : 1;
+                    if(a.title > b.title) return direction === "asc" ? 1: -1;
+
+                    return 0
+                }
+
+                if(criteria === "price") {
+                    return direction === "asc" 
+                    ? a.price - b.price 
+                    : b.price - a.price
+                }
+
+                return 0;
+            })
+        })
+
         return result;
-    }, [products, filters])
+    }, [products, filters, sorts])
 
     if (loading) return <div>Loading...</div>
     if (error) return <div>Error... {error}</div>
