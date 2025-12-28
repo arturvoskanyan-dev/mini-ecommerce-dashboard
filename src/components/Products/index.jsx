@@ -43,28 +43,27 @@ export default function Products({ filters, sorts }) {
         ))
 
                                 /* Sort */        
-        sorts.forEach((sort) => {
-            if(!sort.enabled) return;
+        result.sort((a, b) => {
+            for(const sort of sorts) {
+                if(!sort.enabled) continue;
 
-            result.sort((a, b) => {
-                const criteria = sort.criteria;
-                const direction = sort.direction;
+                const {criteria, direction} = sort;
+                let comparison = 0;
 
                 if(criteria === "title") {
-                    if(a.title < b.title) return direction === "asc" ? -1 : 1;
-                    if(a.title > b.title) return direction === "asc" ? 1: -1;
-
-                    return 0
+                    if(a.title < b.title) comparison = -1;
+                    if(a.title > b.title) comparison = 1;
                 }
 
                 if(criteria === "price") {
-                    return direction === "asc" 
-                    ? a.price - b.price 
-                    : b.price - a.price
+                    comparison = a.price - b.price;
                 }
 
-                return 0;
-            })
+                if(comparison !== 0) {
+                    return direction === 'asc' ? comparison : -comparison
+                }
+            }
+            return 0;
         })
 
         return result;

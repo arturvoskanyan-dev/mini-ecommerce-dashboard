@@ -14,14 +14,14 @@ export default function Sort({ sorts, setSorts }) {
     return (
         <div>
             <select
-                value={`${sorts[0].criteria}-${sorts[0].direction}`}
+                value={`${sorts[1].criteria}-${sorts[1].direction}`}
                 onChange={handleChange}
             >
                 <option value="title-asc">Title A-Z</option>
                 <option value="title-desc">Title Z-A</option>
             </select>
             <select
-                value={`${sorts[1].criteria}-${sorts[1].direction}`}
+                value={`${sorts[0].criteria}-${sorts[0].direction}`}
                 onChange={handleChange}
             >
                 <option value="price-asc">Price Low-High</option>

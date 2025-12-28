@@ -7,8 +7,8 @@ import Sort from '../../components/Sort';
 
 export default function Home() {
   const [sorts, setSorts] = useState([
-    {criteria: "title", direction: "asc", enabled: false},
     {criteria: "price", direction: "asc", enabled: false},
+    {criteria: "title", direction: "asc", enabled: false},
   ])
   const [filters, setFilters] = useState({
     search: "",
