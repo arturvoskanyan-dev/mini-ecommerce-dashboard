@@ -28,7 +28,7 @@ export default function Filter({ filters, setFilters }) {
         <div className={styles.container}>
             <h2 className={styles.title}>Filters</h2>
 
-            <div className={styles.line}></div>
+            <div className={styles.line} />
 
             <CategoryFilter 
                 categories={categories}
@@ -36,7 +36,7 @@ export default function Filter({ filters, setFilters }) {
                 onChange={handleChangeCategory}
             />
 
-            <div className={styles.line}></div>
+            <div className={styles.line} />
 
             <PriceFilter 
                 min={filters.minPrice}
@@ -44,7 +44,7 @@ export default function Filter({ filters, setFilters }) {
                 onChange={handleChangePrice}
             />
 
-            <div className={styles.line}></div>
+            <div className={styles.line} />
 
             <RatingFilter 
                 value={filters.minRating}

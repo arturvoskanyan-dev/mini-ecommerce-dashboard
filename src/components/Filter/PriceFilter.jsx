@@ -20,6 +20,10 @@ export default function PriceFilter({ min, max, onChange }) {
         }
     }
 
+    // range calculation for dual slider hilghlight
+    const left = (localMin / 10); // starting position
+    const width = (localMax - localMin) / 10; // line width
+
     return (
         <div className={styles.sectionContainer}>
             <h3 className={styles.sectionTitle}>Price</h3>
@@ -46,7 +50,15 @@ export default function PriceFilter({ min, max, onChange }) {
                         />
                     </div>
                 </div>
-                <div className={styles.priceInputs}>
+                <div className={styles.rangeContainer}>
+                    <div className={styles.rangeTrack} />
+                    <div
+                        className={styles.rangeTrackHighlight}
+                        style={{
+                            left: `${left}%`,
+                            width: `${width}%`,
+                        }}
+                    />
                     <input
                         type="range"
                         min={0}
@@ -54,8 +66,8 @@ export default function PriceFilter({ min, max, onChange }) {
                         value={localMin}
                         onChange={(e) => handleChange(e, "min")}
                         onMouseUp={handleMouseUp}
+                        className={styles.range}
                     />
-
                     <input
                         type="range"
                         min={0}
@@ -63,6 +75,7 @@ export default function PriceFilter({ min, max, onChange }) {
                         value={localMax}
                         onChange={(e) => handleChange(e, "max")}
                         onMouseUp={handleMouseUp}
+                        className={styles.range}
                     />
                 </div>
             </div>

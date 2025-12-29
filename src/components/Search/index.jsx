@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import styles from "./Search.module.scss";
+import SearchIcon from '../Icons/SearchIcon';
 
-export default function Search({filters, setFilters}) {
+export default function Search({ filters, setFilters }) {
     const [query, setQuery] = useState(filters.search);
 
     const handleChange = (e) => {
@@ -20,12 +21,15 @@ export default function Search({filters, setFilters}) {
     }, [query, setFilters])
 
     return (
-        <input
-            type='text'
-            value={query}
-            onChange={handleChange}
-            placeholder='Search product'
-            className={styles.searchInput}
-        />
+        <div className={styles.content}>
+            <SearchIcon  className={styles.searchIcon}  />
+            <input
+                type='text'
+                value={query}
+                onChange={handleChange}
+                placeholder='Search product'
+                className={styles.searchInput}
+            />
+        </div>
     )
 }
