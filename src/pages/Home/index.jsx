@@ -7,8 +7,8 @@ import Sort from '../../components/Sort';
 
 export default function Home() {
   const [sorts, setSorts] = useState([
-    {criteria: "price", direction: "asc", enabled: false},
-    {criteria: "title", direction: "asc", enabled: false},
+    { criteria: "price", direction: "asc", enabled: false },
+    { criteria: "title", direction: "asc", enabled: false },
   ])
   const [filters, setFilters] = useState({
     search: "",
@@ -28,7 +28,9 @@ export default function Home() {
         <Sort sorts={sorts} setSorts={setSorts} />
       </aside>
       <main className={styles.content}>
-        <Search filters={filters} setFilters={setFilters} />
+        <div className={styles.productsControls}>
+          <Search filters={filters} setFilters={setFilters} />
+        </div>
         <Products filters={filters} sorts={sorts} />
       </main>
     </div>

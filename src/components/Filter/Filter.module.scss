@@ -1,29 +1,27 @@
 @use "../../styles/variables" as v;
 
 .container {
-    padding: 24px;
-    // min-width: 300px;
-    // width: 100%;
-    width: 350px;
-    min-height: 400px;
+    padding: 28px;
+    width: 380px;
+    // min-height: 400px;
     display: flex;
     flex-direction: column;
     gap: 24px;
-    border: 1px solid v.$primary-gray;
-    border-radius: v.$radius-md;
+    border: 1px solid v.$primary-white;
+    border-radius: v.$radius-lg;
 
     .title {
-        font-size: v.$font-2xl;
+        font-size: v.$font-3xl;
         // font-weight: v.$font-semibold;
     }
 
     .sectionContainer {
         display: flex;
         flex-direction: column;
-        gap: 12px;
+        gap: 18px;
 
         .sectionTitle {
-            font-size: v.$font-xl;
+            font-size: v.$font-2xl;
         }
 
         .categoryContainer {
@@ -32,44 +30,79 @@
             gap: 14px;
 
             .categoryLabel {
-                font-size: v.$font-lg;
-                font-weight: v.$font-semibold;
+                font-size: v.$font-xl;
+                font-weight: v.$font-medium;
                 display: flex;
                 gap: 6px;
+                cursor: pointer;
 
                 .checkbox {
-                    width: 16px;
+                    width: 18px;
+                    accent-color: v.$primary-orange;
                 }
             }
         }
 
-        .priceContent {
+        .priceFilter {
             display: flex;
-            gap: 12px;
+            flex-direction: column;
+            gap: 24px;
 
-            .priceInfo {
+            .priceContent {
                 display: flex;
-                flex-direction: column;
-                // align-items: center;
-
-                .priceInput {
-                    padding: 8px 12px;
-                    max-width: 120px;
-                    border-radius: v.$radius-md;
+                justify-content: space-between;
+                gap: 12px;
+    
+    
+                .priceInfo {
+                    display: flex;
+                    flex-direction: column;
+                    gap: 8px;
+                    // align-items: center;
+    
+                    .priceInput {
+                        padding: 12px 16px;
+                        max-width: 140px;
+                        font-size: v.$font-lg;
+                        border: 2px solid v.$primary-white;
+                        border-radius: v.$radius-md;
+                    }
                 }
             }
+
+            .priceInputs {
+                display: flex;
+                justify-content: space-between;
+                accent-color: v.$primary-orange;
+            }
         }
+
 
         .ratingContent {
             display: flex;
-            gap: 8px;
+            align-items: center;
+            gap: 12px;
 
             .ratingLabel {
                 font-size: v.$font-lg;
                 font-weight: v.$font-semibold;
             }
+
+            .ratingSelect {
+                padding: 12px 14px;
+                font-size: v.$font-lg;
+                border: 1px solid v.$primary-white;
+                border-radius: v.$radius-md;
+                background-color: transparent;
+                outline: none;
+            }
         }
 
     }
 
+}
+
+.line {
+    width: 100%;
+    border-bottom: 2px solid v.$primary-white;
 }

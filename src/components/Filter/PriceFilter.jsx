@@ -23,10 +23,10 @@ export default function PriceFilter({ min, max, onChange }) {
     return (
         <div className={styles.sectionContainer}>
             <h3 className={styles.sectionTitle}>Price</h3>
-            <div>
+            <div className={styles.priceFilter}>
                 <div className={styles.priceContent}>
                     <div className={styles.priceInfo}>
-                        <span>From</span>
+                        <h3>From</h3>
                         <input
                             type='text'
                             value={localMin}
@@ -36,7 +36,7 @@ export default function PriceFilter({ min, max, onChange }) {
                         />
                     </div>
                     <div className={styles.priceInfo}>
-                        <span>To</span>
+                        <h3>To</h3>
                         <input
                             type='text'
                             value={localMax}
@@ -46,7 +46,7 @@ export default function PriceFilter({ min, max, onChange }) {
                         />
                     </div>
                 </div>
-                <div>
+                <div className={styles.priceInputs}>
                     <input
                         type="range"
                         min={0}

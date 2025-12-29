@@ -1,6 +1,15 @@
+@use "../../styles/variables.scss" as v;
+
 .container {
     padding: 40px;
     display: flex;
     align-items: start;
     gap: 24px;
+
+    .productsControls {
+        padding: 28px;
+        border: 1px solid v.$primary-white;
+        border-bottom: none;
+        border-radius: v.$radius-lg v.$radius-lg 0 0;
+    }
 }

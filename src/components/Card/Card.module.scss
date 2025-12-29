@@ -2,41 +2,69 @@
 @use "../../styles/variables" as v;
 
 .container {
-    max-width: 250px;
-    padding: 12px;
+    // max-width: 280px;
+    width: 280px;
+    // width: 100%;
+    padding: 18px;
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 24px;
-    border: 1px solid v.$primary-gray;
-    border-radius: v.$radius-md;
+    border: 1px solid v.$primary-white;
+    border-radius: v.$radius-lg;
 
     .image {
-        width: 200px;
+        // width: 200px;
+        // height: 180px;
+        width: 180px;
         height: 180px;
         object-fit: contain;
     }
     
-    .title {
-        font-size: v.$font-xl;
-    }
-
     .content {
+        width: 100%;
         display: flex;
         flex-direction: column;
-        gap: 10px;
-    }
+        gap: 12px;
 
-    .info {
-        display: flex;
-        justify-content: space-between;
-    }
+        .title {
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            // color: v.$primary-black;
+            font-size: v.$font-xl;
+        }
 
-    .price {
-        color: v.$primary-gray;
-    }
+        .info {
+            display: flex;
+            justify-content: space-between;
 
-    .rating {
-        color: v.$primary-gold;
+            .price {
+                font-size: v.$font-xl;
+                font-weight: v.$font-medium;
+                color: v.$primary-gray;
+            }
+        
+            .rating {
+                font-size: v.$font-xl;
+                color: v.$primary-gold;
+            }
+        }
+
+        .cartBtn {
+            padding: 12px;
+            font-size: v.$font-lg;
+            border: 2px solid v.$primary-white;
+            border-radius: v.$radius-md;
+            background-color: transparent;
+            transition: 0.3s;
+        }
+
+        .cartBtn:hover {
+            color: white;
+            background-color: v.$primary-orange;
+            // border: none;
+        }
     }
 }
 
@@ -44,4 +72,9 @@
   text-decoration: none;
   color: inherit;
   display: block;
+}
+
+.line {
+    width: 100%;
+    border-bottom: 2px solid v.$primary-white;
 }

@@ -28,17 +28,23 @@ export default function Filter({ filters, setFilters }) {
         <div className={styles.container}>
             <h2 className={styles.title}>Filters</h2>
 
+            <div className={styles.line}></div>
+
             <CategoryFilter 
                 categories={categories}
                 selected={filters.category}
                 onChange={handleChangeCategory}
             />
 
+            <div className={styles.line}></div>
+
             <PriceFilter 
                 min={filters.minPrice}
                 max={filters.maxPrice}
                 onChange={handleChangePrice}
             />
+
+            <div className={styles.line}></div>
 
             <RatingFilter 
                 value={filters.minRating}

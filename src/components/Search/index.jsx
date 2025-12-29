@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import styles from "./Search.module.scss";
 
 export default function Search({filters, setFilters}) {
     const [query, setQuery] = useState(filters.search);
@@ -23,7 +24,8 @@ export default function Search({filters, setFilters}) {
             type='text'
             value={query}
             onChange={handleChange}
-            placeholder='Search...'
+            placeholder='Search product'
+            className={styles.searchInput}
         />
     )
 }

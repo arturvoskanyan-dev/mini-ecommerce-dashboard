@@ -1,0 +1,11 @@
+@use "../../styles/variables.scss" as v;
+
+.searchInput {
+    max-width: 340px;
+    width: 100%;
+    padding: 12px;
+    font-size: v.$font-lg;
+    border: 2px solid v.$primary-white;
+    border-radius: v.$radius-md;
+    outline: none;
+}

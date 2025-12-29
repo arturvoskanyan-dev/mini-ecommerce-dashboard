@@ -10,11 +10,14 @@ export default function RatingFilter({ value, onChange }) {
         <div className={styles.sectionContainer}>
             <h3 className={styles.sectionTitle}>Rating</h3>
             <div className={styles.ratingContent}>
-                <label className={styles.ratingLabel} htmlFor='ratingFilter'>Minimum rating</label>
+                <label className={styles.ratingLabel} htmlFor='ratingFilter'>
+                    <h3>Minimum rating</h3>
+                </label>
                 <select
                     id='ratingFilter'
                     value={value}
                     onChange={handleChangeRating}
+                    className={styles.ratingSelect}
                 >
                     <option value={0}>All</option>
                     <option value={1}>1</option>
