@@ -1,0 +1,13 @@
+.cart {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 360px;
+    height: 100vh;
+    background-color: white;
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    z-index: 1000;
+}
+

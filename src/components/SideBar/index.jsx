@@ -3,8 +3,16 @@ import styles from "./SideBar.module.scss";
 import ProductsIcon from '../Icons/ProductsIcon';
 import CartIcon from '../Icons/CartIcon';
 import { NavLink } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { openCart } from '../../store/slices/ui/uiSlice';
 
 export default function SideBar() {
+    const dispatch = useDispatch();
+
+    const handleOpenCart = () => {
+        dispatch(openCart());
+    }
+
     return (
         <aside className={styles.sidebar}>
             <div className={styles.logo}>
@@ -22,7 +30,10 @@ export default function SideBar() {
                 >
                     <ProductsIcon className={styles.navIcon} />
                 </NavLink>
-                <div className={styles.navItem}>
+                <div
+                    onClick={handleOpenCart}
+                    className={styles.navItem}
+                >
                     <CartIcon className={styles.navIcon} />
                 </div>
             </nav>
