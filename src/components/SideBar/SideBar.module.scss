@@ -1,0 +1,57 @@
+@use "../../styles/variables.scss" as v;
+
+.sidebar {
+    position: fixed;
+    padding: 28px;
+    width: 130px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    background-color: v.$secondary-white;
+
+    .nav {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+
+        .navItem {
+            width: 60px;
+            height: 60px;
+            text-align: center;
+            border: 1px solid v.$secondary-white;
+            border-radius: v.$radius-md;
+            transition: 0.3s;
+            
+            .navIcon {
+                position: relative;
+                top: 25%;
+                width: 30px;
+                height: 30px;
+                color: v.$primary-gray;
+                fill: transparent;
+                cursor: pointer;
+                transition: 0.3s;
+            }
+            .navIcon:hover {
+                color: v.$primary-orange;
+            }
+        }
+
+        .navItem_active {
+            background-color: white;
+            color: v.$primary-orange;
+            border: 1px solid v.$primary-white;
+        }
+
+        .navItem_active > .navIcon{
+            color: v.$primary-orange;
+        }
+    }
+}
+
+.line {
+    width: 100%;
+    border-bottom: 2px solid v.$primary-white;
+}
