@@ -1,6 +1,6 @@
 @use "../../styles/variables.scss" as v;
 
-.card {
+.productCard {
     width: 280px;
 
     .title {
@@ -63,9 +63,4 @@
         // border: none;
     }
 
-}
-
-.line {
-    width: 100%;
-    border-bottom: 2px solid v.$primary-white;
 }

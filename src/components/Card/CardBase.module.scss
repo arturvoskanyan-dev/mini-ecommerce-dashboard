@@ -10,17 +10,6 @@
     border-radius: v.$radius-lg;
 }
 
-.image {
-    width: 180px;
-    height: 180px;
-    object-fit: contain;
-}
-
-.line {
-    width: 100%;
-    border-bottom: 2px solid v.$primary-white;
-}
-
 .content {
     width: 100%;
     display: flex;
@@ -32,4 +21,49 @@
     text-decoration: none;
     color: inherit;
     display: block;
+}
+
+
+/* Product Card */
+.product {
+    width: 280px;
+    flex-direction: column;
+    align-items: center;
+
+    .image {
+        width: 180px;
+        height: 180px;
+        object-fit: contain;
+    }
+
+    .content {
+        flex-direction: column;
+    }
+
+    .line {
+        width: 100%;
+        border-bottom: 2px solid v.$primary-white;
+    }
+}
+
+/* Cart Item Card */
+.cart {
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+
+    .image {
+        width: 100px;
+        height: 100px;
+        object-fit: contain;
+    }
+
+    .content {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .line {
+        display: none;
+    }
 }

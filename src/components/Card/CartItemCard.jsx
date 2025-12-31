@@ -1,87 +1,63 @@
 import React from 'react'
 import CardBase from './CardBase';
 import styles from "./CartItemCard.module.scss";
-import { useDispatch } from 'react-redux';
-import { decrementCartItem, incrementCartItem, removeCart } from '../../store/slices/cart/cartSlice';
+import RemoveIcon from '../Icons/RemoveIcon';
 
-export default function CartItemCard({ product }) {
+export default function CartItemCard({ product, onIncrement, onDecrement, onRemove }) {
     const { id, image, title, price, count } = product;
-    const dispatch = useDispatch();
 
-    const handleRemoveCart = (id) => {
-        dispatch(removeCart(id));
+    const handleRemoveCart = (e) => {
+        e.preventDefault();
+        onRemove(product.id)
     }
 
-    const handleIncrement = (id) => {
-        dispatch(incrementCartItem(id));
+    const handleIncrement = (e) => {
+        e.preventDefault();
+        onIncrement(product.id);
     }
 
-    const handleDecrement = (id) => {
-        dispatch(decrementCartItem(id));
+    const handleDecrement = (e) => {
+        e.preventDefault();
+        onDecrement(product.id);
     }
 
     return (
         <CardBase
             to={`/product/${id}`}
             image={image}
-            alt={`Image ${title}`}
-            className={styles.card}
+            className={styles.cartItemCard}
+            variant='cart'
         >
             <div className={styles.details}>
                 <h3 className={styles.title}>{title}</h3>
                 <button
-                    onClick={() => handleRemoveCart(product.id)}
+                    className={styles.removeBtn}
+                    onClick={handleRemoveCart}
                 >
-                    Remove
+                    <RemoveIcon className={styles.removeIcon} />
+                    <span>Remove</span>
                 </button>
             </div>
-            <div>
-                <div>
+            <div className={styles.itemControls}>
+                <div className={styles.quantityControls}>
                     <button
-                        onClick={() => handleDecrement(product.id)}
+                        className={styles.minusBtn}
+                        onClick={handleDecrement}
                     >
                         -
                     </button>
-                    <span>{count}</span>
+                    <span className={styles.count}>{count}</span>
                     <button
-                        onClick={() => handleIncrement(product.id)}
+                        className={styles.plusBtn}
+                        onClick={handleIncrement}
                     >
                         +
                     </button>
                 </div>
-                <h3>{price}</h3>
+                <h3 className={styles.price}>
+                    ${price}
+                </h3>
             </div>
         </CardBase>
     )
 }
-
-// export default function CartItemCard({ product, onRemove, onIncrement, onDecrement }) {
-//     const { id, image, title, price, count } = product;
-
-//     return (
-//         <CardBase
-//             to={`/product/${id}`}
-//             image={image}
-//             alt={title}
-//             className={styles.card}
-//         >
-//             <div className={styles.details}>
-//                 <h3 className={styles.title}>{title}</h3>
-
-//                 <div className={styles.controls}>
-//                     <button onClick={() => onDecrement(id)}>-</button>
-//                     <span>{count}</span>
-//                     <button onClick={() => onIncrement(id)}>+</button>
-//                 </div>
-
-//                 <button className={styles.removeBtn} onClick={() => onRemove(id)}>
-//                     Remove
-//                 </button>
-//             </div>
-
-//             <div className={styles.price}>
-//                 ${price * count}
-//             </div>
-//         </CardBase>
-//     );
-// }

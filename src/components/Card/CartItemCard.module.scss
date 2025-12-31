@@ -1,0 +1,84 @@
+@use "../../styles/variables.scss" as v;
+
+.cartItemCard {
+    padding: 18px;
+    max-width: 800px;
+    height: 150px;
+    display: flex;
+    flex-direction: row;
+
+    .content {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .details {
+        height: 100px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .title {
+        font-size: v.$font-xl;
+    }
+
+    .removeBtn {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        background: transparent;
+        border: none;
+        text-align: start;
+        font-size: v.$font-xl;
+        color: v.$primary-gray;
+
+        .removeIcon {
+            width: 20px;
+            height: 20px;
+        }
+    }
+
+    .itemControls {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: end;
+        gap: 12px;
+
+        .quantityControls {
+            // padding: 4px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            border: 1px solid v.$primary-gray;
+
+            .minusBtn, .plusBtn {
+                padding: 4px;
+                width: 42px;
+                font-size: v.$font-xl;
+                border: none;
+            }
+
+            .minusBtn {
+                background: transparent;
+                border-right: 1px solid v.$primary-gray;
+            }
+
+            .plusBtn {
+                color: white;
+                background-color: v.$primary-orange;
+                font-size: v.$font-xl;
+            }
+
+            .count {
+                font-size: v.$font-xl;
+            }
+        }
+    }
+
+    .price {
+        color: v.$primary-gray;
+        font-size: v.$font-xl;
+    }
+}

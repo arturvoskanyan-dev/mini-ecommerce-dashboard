@@ -52,6 +52,9 @@ export default function Cart() {
                         <CartItemCard 
                             key={product.id}
                             product={product}
+                            onRemove={handleRemoveCart}
+                            onIncrement={handleIncrement}
+                            onDecrement={handleDecrement}
                         />       
                     ))
                 }

@@ -2,13 +2,21 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 import styles from "./CardBase.module.scss";
 
-export default function CardBase({to, image, alt, children, className}) {
+export default function CardBase({ 
+    to, 
+    image, 
+    children, 
+    className, 
+    variant="product"
+}) {
     return (
         <NavLink to={to} className={styles.navLink}>
-            <div className={`${styles.container} ${className || ""}`}>
-                <img 
+            <div
+                className={`${styles.container} ${styles[variant]} ${className || ""}`}
+            >
+                <img
                     src={image}
-                    alt={alt}
+                    alt={`Image ${children?.props?.title || ""}`}
                     className={styles.image}
                 />
 

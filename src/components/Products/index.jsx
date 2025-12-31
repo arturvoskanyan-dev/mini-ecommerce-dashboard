@@ -2,7 +2,6 @@ import React, { useEffect, useMemo } from 'react'
 import styles from "./Products.module.scss";
 import { useDispatch, useSelector } from 'react-redux';
 import { getProducts } from '../../store/slices/products/productsThunk';
-// import Card from '../Card/index.jsx';
 import ProductCard from '../Card/ProductCard';
 import { addToCart } from '../../store/slices/cart/cartSlice';
 
@@ -14,8 +13,7 @@ export default function Products({ filters, sorts }) {
         dispatch(getProducts())
     }, [dispatch])
 
-    const handleAddToCart = ( product) => {
-        // e.preventDefault();
+    const handleAddToCart = (product) => {
         dispatch(addToCart(product));
     }
 
@@ -83,18 +81,6 @@ export default function Products({ filters, sorts }) {
 
     return (
         <div className={styles.container}>
-            {/* {
-                filteredProducts?.map((product) => (
-                    <Card
-                        key={product.id}
-                        product={product}
-                        title={product.title}
-                        image={product.image}
-                        price={product.price}
-                        rating={product.rating}
-                    />
-                ))
-            } */}
             {
                 filteredProducts?.map((product) => (
                     <ProductCard

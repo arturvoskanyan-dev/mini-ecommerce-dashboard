@@ -16,11 +16,8 @@ export default function ProductCard({ product, onAddToCart }) {
         <CardBase
             to={`/product/${id}`}
             image={image}
-            alt={`Imae ${title}`}
-            className={styles.card}
+            className={styles.productCard}
         >
-            {/* <div className={styles.line} /> */}
-
             <h3 className={styles.title}>{title}</h3>
 
             <div className={styles.info}>

@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import SideBar from '../SideBar'
-import { Outlet } from 'react-router-dom'
+import { Outlet, useLocation } from 'react-router-dom'
 import styles from "./Layout.module.scss";
 import Cart from '../Cart';
 import { useDispatch, useSelector } from 'react-redux';
@@ -8,11 +8,19 @@ import { closeCart } from '../../store/slices/ui/uiSlice';
 
 export default function Layout() {
     const { isCartOpen } = useSelector((state) => state.ui);
+    const location = useLocation();
     const dispatch = useDispatch();
 
     const handleCloseCart = () => {
         dispatch(closeCart());
     }
+
+    // close the cart overlay when the route change
+    useEffect(() => {
+        if(isCartOpen) {
+            dispatch(closeCart());
+        }
+    }, [location.pathname, dispatch])
 
     // cart slide-out with overlay and scroll lock
     useEffect(() => {
