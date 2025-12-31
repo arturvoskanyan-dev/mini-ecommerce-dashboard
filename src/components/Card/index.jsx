@@ -36,7 +36,7 @@ export default function Card({ title, image, price, rating, product }) {
                         onClick={handleAddToCart}
                         className={styles.cartBtn}
                     >
-                        <CartIcon className={styles.cartIcon}/>
+                        <CartIcon className={styles.cartIcon} />
                         Add to cart
                     </button>
                 </div>

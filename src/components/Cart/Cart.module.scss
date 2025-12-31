@@ -1,13 +1,64 @@
+@use "../../styles/variables.scss" as v;
+
 .cart {
     position: fixed;
     top: 0;
     right: 0;
-    width: 360px;
+    width: 840px;
     height: 100vh;
     background-color: white;
     padding: 28px;
     display: flex;
     flex-direction: column;
     z-index: 1000;
+
+    .header {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+
+        .title {
+            font-size: v.$font-3xl;
+        }
+
+        .closeBtn {
+            background: transparent;
+            border: none;
+            
+            .closeIcon {
+                width: 30px;
+                height: 30px;
+                color: black;
+                transition: 0.3s;
+            }
+        }
+
+        .closeBtn:hover > .closeIcon {
+            color: v.$primary-orange;
+        }
+    }
 }
 
+.content {
+    max-height: 700px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.card {
+    padding: 24px;
+    max-width: 400px;
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid v.$primary-white;
+    border-radius: v.$radius-lg;
+    // gap: 12px;
+
+    .image {
+        width: 80px;
+        height: 80px;
+        object-fit: contain;
+    }
+}

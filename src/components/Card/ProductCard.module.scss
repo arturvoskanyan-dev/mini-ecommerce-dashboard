@@ -1,0 +1,71 @@
+@use "../../styles/variables.scss" as v;
+
+.card {
+    width: 280px;
+
+    .title {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        font-size: v.$font-xl;
+    }
+
+    .info {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .price {
+            font-size: v.$font-xl;
+            font-weight: v.$font-medium;
+            color: v.$primary-gray;
+        }
+
+        .rating {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            font-size: v.$font-xl;
+            color: v.$primary-gold;
+
+            .starIcon {
+                width: 20px;
+                height: 20px;
+                color: v.$primary-gold;
+                fill: v.$primary-gold;
+            }
+        }
+    }
+
+    .cartBtn {
+        padding: 12px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 8px;
+        font-size: v.$font-lg;
+        border: 2px solid v.$primary-white;
+        border-radius: v.$radius-md;
+        background-color: transparent;
+        transition: 0.3s;
+
+        .cartIcon {
+            width: 18px;
+            height: 18px;
+            fill: transparent;
+        }
+    }
+
+    .cartBtn:hover {
+        color: white;
+        background-color: v.$primary-orange;
+        fill: white;
+        // border: none;
+    }
+
+}
+
+.line {
+    width: 100%;
+    border-bottom: 2px solid v.$primary-white;
+}

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import SideBar from '../SideBar'
 import { Outlet } from 'react-router-dom'
 import styles from "./Layout.module.scss";
@@ -13,6 +13,15 @@ export default function Layout() {
     const handleCloseCart = () => {
         dispatch(closeCart());
     }
+
+    // cart slide-out with overlay and scroll lock
+    useEffect(() => {
+        document.body.style.overflow = isCartOpen
+        ? "hidden"
+        : "auto"
+
+        return () => document.body.style.overflow = "auto";
+    }, [isCartOpen])
 
     return (
         <div className={styles.layout}>
