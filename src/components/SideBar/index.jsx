@@ -15,9 +15,7 @@ export default function SideBar() {
 
     return (
         <aside className={styles.sidebar}>
-            <div className={styles.logo}>
-                Logo
-            </div>
+            <img src='/logo.svg' className={styles.logo} />
             <div className={styles.line} />
             <nav className={styles.nav}>
                 <NavLink

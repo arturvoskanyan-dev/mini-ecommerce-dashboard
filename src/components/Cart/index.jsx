@@ -26,8 +26,9 @@ export default function Cart() {
         dispatch(decrementCartItem(id));
     }
 
-    console.log(products);
-
+    const subTotal = products.reduce((acc, p) => (
+        acc += p.count * p.price
+    ), 0);
 
     return (
         <aside
@@ -49,21 +50,38 @@ export default function Cart() {
             <div className={styles.content}>
                 {
                     products.map((product) => (
-                        <CartItemCard 
+                        <CartItemCard
                             key={product.id}
                             product={product}
                             onRemove={handleRemoveCart}
                             onIncrement={handleIncrement}
                             onDecrement={handleDecrement}
-                        />       
+                        />
                     ))
                 }
             </div>
 
             <footer className={styles.footer}>
+                <h2 className={styles.totalTitle}>Cart Total</h2>
                 <div className={styles.total}>
-                    <span>Total: </span>
+                    <div className={styles.totalRow}>
+                        <span>Subtotal:</span>
+                        <span>${subTotal.toFixed(2)}</span>
+                    </div>
+                    <div className={styles.line} />
+                    <div className={styles.totalRow}>
+                        <span>Shipping:</span>
+                        <span>Free</span>
+                    </div>
+                    <div className={styles.line} />
+                    <div className={styles.totalRow}>
+                        <span>Total:</span>
+                        <span>${subTotal.toFixed(2)}</span>
+                    </div>
                 </div>
+                <button className={styles.checkoutBtn} disabled>
+                    Procees to checkout
+                </button>
             </footer>
         </aside>
     )
