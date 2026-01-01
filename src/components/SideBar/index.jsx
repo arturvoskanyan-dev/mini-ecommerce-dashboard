@@ -3,15 +3,21 @@ import styles from "./SideBar.module.scss";
 import ProductsIcon from '../Icons/ProductsIcon';
 import CartIcon from '../Icons/CartIcon';
 import { NavLink } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { openCart } from '../../store/slices/ui/uiSlice';
+import CartBadge from '../UI/CartBadge';
 
 export default function SideBar() {
+    const {products} = useSelector((state) => state.cart);
     const dispatch = useDispatch();
 
     const handleOpenCart = () => {
         dispatch(openCart());
     }
+
+    const totalCount = products.reduce((acc, p) => (
+        acc = acc + p.count
+    ), 0);
 
     return (
         <aside className={styles.sidebar}>
@@ -32,7 +38,10 @@ export default function SideBar() {
                     onClick={handleOpenCart}
                     className={styles.navItem}
                 >
-                    <CartIcon className={styles.navIcon} />
+                    <div className={styles.cartIconWrapper}>
+                        <CartBadge count={totalCount} />
+                        <CartIcon className={styles.navIcon} />
+                    </div>
                 </div>
             </nav>
         </aside>

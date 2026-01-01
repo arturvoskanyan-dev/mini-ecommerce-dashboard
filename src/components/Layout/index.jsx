@@ -5,6 +5,7 @@ import styles from "./Layout.module.scss";
 import Cart from '../Cart';
 import { useDispatch, useSelector } from 'react-redux';
 import { closeCart } from '../../store/slices/ui/uiSlice';
+import PageHeader from '../UI/PageHeader';
 
 export default function Layout() {
     const { isCartOpen } = useSelector((state) => state.ui);
@@ -17,7 +18,7 @@ export default function Layout() {
 
     // close the cart overlay when the route change
     useEffect(() => {
-        if(isCartOpen) {
+        if (isCartOpen) {
             dispatch(closeCart());
         }
     }, [location.pathname, dispatch])
@@ -25,15 +26,18 @@ export default function Layout() {
     // cart slide-out with overlay and scroll lock
     useEffect(() => {
         document.body.style.overflow = isCartOpen
-        ? "hidden"
-        : "auto"
+            ? "hidden"
+            : "auto"
 
         return () => document.body.style.overflow = "auto";
     }, [isCartOpen])
 
     return (
         <div className={styles.layout}>
-            <SideBar />
+            <header className={styles.header}>
+                <PageHeader />
+                <SideBar />
+            </header>
             <main className={styles.main}>
                 <Outlet />
             </main>
@@ -41,7 +45,7 @@ export default function Layout() {
                 isCartOpen && (
                     <>
                         {/* Overlay */}
-                        <div 
+                        <div
                             className={styles.overlay}
                             onClick={handleCloseCart}
                         />

@@ -1,0 +1,45 @@
+@use "../../styles/variables.scss" as v;
+
+.sort {
+    padding: 28px;
+    width: 380px;
+    // min-height: 400px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    border: 1px solid v.$primary-white;
+    border-radius: v.$radius-lg;
+
+    .title {
+        font-size: v.$font-3xl;
+    }
+
+    .sortControls {
+        display: flex;
+        justify-content: space-between;
+
+        .sortItem {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+
+            .sortTitle {
+                font-size: v.$font-2xl;
+            }
+
+            .sortSelect {
+                padding: 12px 14px;
+                font-size: v.$font-lg;
+                border: 1px solid v.$primary-white;
+                border-radius: v.$radius-md;
+                background-color: transparent;
+                outline: none;
+            }
+        }
+    }
+}
+
+.line {
+    width: 100%;
+    border-bottom: 2px solid v.$primary-white;
+}

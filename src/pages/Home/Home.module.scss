@@ -6,6 +6,12 @@
     align-items: start;
     gap: 24px;
 
+    .filtersSidebar {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+    }
+
     .productsControls {
         padding: 28px;
         border: 1px solid v.$primary-white;

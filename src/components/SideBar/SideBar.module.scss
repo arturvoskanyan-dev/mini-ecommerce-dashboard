@@ -10,6 +10,7 @@
     align-items: center;
     gap: 24px;
     background-color: v.$secondary-white;
+    z-index: 50;
 
     .logo {
         width: 86px;
@@ -21,7 +22,8 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        gap: 12px;
+        // gap: 12px;
+        gap: 32px;
 
         .navItem {
             width: 60px;
@@ -54,6 +56,11 @@
 
         .navItem_active > .navIcon{
             color: v.$primary-orange;
+        }
+
+        .cartIconWrapper {
+            position: relative;
+            cursor: pointer;
         }
     }
 }

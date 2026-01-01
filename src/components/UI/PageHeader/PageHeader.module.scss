@@ -1,0 +1,17 @@
+@use "../../../styles/variables.scss" as v;
+
+.header {
+    width: 100%;
+    padding: 40px 0 40px 0;
+    background-color: white;
+}
+
+.title {
+    font-size: v.$font-3xl;
+    padding: 0 40px 30px 170px;
+}
+
+.line {
+    width: 100%;
+    border-bottom: 2px solid v.$primary-white;
+}
