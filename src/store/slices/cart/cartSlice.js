@@ -16,7 +16,7 @@ const cartSlice = createSlice({
             const productItem = state.products.find((product) => product.id === action.payload.id);
 
             if (productItem) {
-                productItem.count += 1
+                productItem.count += action.payload.count;
             } else {
                 state.products.push({ ...action.payload })
             }

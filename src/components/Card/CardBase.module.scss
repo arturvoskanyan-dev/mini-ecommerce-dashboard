@@ -67,3 +67,28 @@
         display: none;
     }
 }
+
+/* ProductDetails */
+.productDetails {
+    padding: 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border: none;
+
+    .image {
+        width: 500px;
+        height: 400px;
+        object-fit: contain;
+    }
+
+    .content {
+        max-width: 750px;
+        flex-direction: column;
+        gap: 24px;
+    }
+
+    .line {
+        display: none;
+    }
+}

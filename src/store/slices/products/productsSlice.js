@@ -11,16 +11,7 @@ const initialState = {
 const productsSlice = createSlice({
     name: "productsSlice",
     initialState,
-    reducers: {
-        incrementProductCount: (state, action) => {
-            const product = state.products.find((p) => p.id === action.payload);
-            if(product) product.count += 1
-        },
-        decrementProductCount: (state, action) => {
-            const product = state.products.find((p) => p.id === action.payload);
-            if(product && product.count > 1) product.count -= 1;
-        }
-    },
+    reducers: {},
     extraReducers: (builder) => {
         // getProducts
         builder
@@ -55,5 +46,4 @@ const productsSlice = createSlice({
     }
 })
 
-export const {incrementProductCount, decrementProductCount} = productsSlice.actions;
 export default productsSlice.reducer;

@@ -7,10 +7,13 @@ export default function CardBase({
     image, 
     children, 
     className, 
-    variant="product"
+    variant="product",
+    clickable=true
 }) {
+    const Container = clickable ? NavLink : "div";
+
     return (
-        <NavLink to={to} className={styles.navLink}>
+        <Container to={clickable ? to : ""} className={styles.navLink}>
             <div
                 className={`${styles.container} ${styles[variant]} ${className || ""}`}
             >
@@ -26,6 +29,6 @@ export default function CardBase({
                     {children}
                 </div>
             </div>
-        </NavLink>
+        </Container>
     )
 }
