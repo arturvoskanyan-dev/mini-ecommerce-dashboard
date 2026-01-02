@@ -1,9 +1,10 @@
 @use "../../styles/variables.scss" as v;
 
 .sort {
+    // padding: 28px;
     padding: 28px;
-    width: 380px;
-    // min-height: 400px;
+    // width: 380px;
+    width: 340px;
     display: flex;
     flex-direction: column;
     gap: 24px;
@@ -11,7 +12,7 @@
     border-radius: v.$radius-lg;
 
     .title {
-        font-size: v.$font-3xl;
+        font-size: v.$font-2xl;
     }
 
     .sortControls {
@@ -24,12 +25,12 @@
             gap: 12px;
 
             .sortTitle {
-                font-size: v.$font-2xl;
+                font-size: v.$font-xl;
             }
 
             .sortSelect {
                 padding: 12px 14px;
-                font-size: v.$font-lg;
+                font-size: v.$font-base;
                 border: 1px solid v.$primary-white;
                 border-radius: v.$radius-md;
                 background-color: transparent;

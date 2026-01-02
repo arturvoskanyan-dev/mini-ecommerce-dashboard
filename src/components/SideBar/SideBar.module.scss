@@ -2,8 +2,10 @@
 
 .sidebar {
     position: fixed;
-    padding: 28px;
-    width: 130px;
+    // padding: 28px;
+    padding: 4px 22px;
+    // width: 130px;
+    width: 110px;
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -13,8 +15,11 @@
     z-index: 50;
 
     .logo {
-        width: 86px;
-        height: 86px;
+        // width: 86px;
+        // height: 86px;
+
+        width: 76px;
+        height: 76px;
         object-fit: contain;
     }
 
@@ -36,8 +41,8 @@
             .navIcon {
                 position: relative;
                 top: 25%;
-                width: 30px;
-                height: 30px;
+                width: 24px;
+                height: 24px;
                 color: v.$primary-gray;
                 fill: transparent;
                 cursor: pointer;

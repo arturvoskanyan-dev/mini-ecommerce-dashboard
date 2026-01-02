@@ -1,13 +1,13 @@
 @use "../../styles/variables.scss" as v;
 
 .productCard {
-    width: 280px;
+    width: 245px;
 
     .title {
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
-        font-size: v.$font-xl;
+        font-size: v.$font-lg;
     }
 
     .info {
@@ -16,7 +16,7 @@
         align-items: center;
 
         .price {
-            font-size: v.$font-xl;
+            font-size: v.$font-lg;
             font-weight: v.$font-medium;
             color: v.$primary-gray;
         }
@@ -25,7 +25,7 @@
             display: flex;
             align-items: center;
             gap: 4px;
-            font-size: v.$font-xl;
+            font-size: v.$font-lg;
             color: v.$primary-gold;
 
             .starIcon {
@@ -43,7 +43,7 @@
         justify-content: center;
         align-items: center;
         gap: 8px;
-        font-size: v.$font-lg;
+        font-size: v.$font-base;
         border: 2px solid v.$primary-white;
         border-radius: v.$radius-lg;
         background-color: transparent;
@@ -60,7 +60,7 @@
         color: white;
         background-color: v.$primary-orange;
         fill: white;
-        // border: none;
+        border-color: v.$primary-orange;
     }
 
     .quantityControls {
@@ -79,7 +79,7 @@
             width: 42px;
             height: 44px;
             color: v.$primary-orange;
-            font-size: v.$font-2xl;
+            font-size: v.$font-xl;
             font-weight: v.$font-semibold;
             border: none;
             background: transparent;
@@ -88,7 +88,7 @@
         .count {
             color: v.$primary-orange;
             font-weight: v.$font-semibold;
-            font-size: v.$font-2xl;
+            font-size: v.$font-xl;
         }
     }
 

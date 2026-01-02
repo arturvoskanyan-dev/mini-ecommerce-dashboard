@@ -1,10 +1,12 @@
 @use "../../styles/variables.scss" as v;
 
 .container {
-    padding: 28px;
+    // padding: 28px;
+    padding: 22px;
     display: flex;
     flex-wrap: wrap;
-    gap: 24px;
+    // gap: 24px;
+    gap: 12px;
     border: 1px solid v.$primary-white;
     border-bottom-left-radius: v.$radius-lg;
     border-bottom-right-radius: v.$radius-lg;

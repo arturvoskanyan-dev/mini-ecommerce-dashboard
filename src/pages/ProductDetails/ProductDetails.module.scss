@@ -1,20 +1,20 @@
 @use "../../styles/variables.scss" as v;
 
 .productDetails {
-    max-width: 1700px;
+    max-width: 1600px;
     width: 100%;
     // display: flex;
     // justify-content: space-between;
 
     .title {
-        font-size: v.$font-3xl;
+        font-size: v.$font-2xl;
     }
 
     .ratingContent {
         display: flex;
         align-items: center;
         gap: 4px;
-        font-size: v.$font-xl;
+        font-size: v.$font-lg;
         color: v.$primary-gray;
 
         .starIcon {
@@ -30,11 +30,11 @@
     }
 
     .price {
-        font-size: v.$font-2xl;
+        font-size: v.$font-xl;
     }
 
     .description {
-        font-size: v.$font-2xl;
+        font-size: v.$font-xl;
     }
 
     .line {
@@ -66,7 +66,7 @@
                 width: 42px;
                 height: 44px;
                 color: v.$primary-orange;
-                font-size: v.$font-2xl;
+                font-size: v.$font-xl;
                 font-weight: v.$font-semibold;
                 border: none;
                 background: transparent;
@@ -75,7 +75,7 @@
             .count {
                 color: v.$primary-orange;
                 font-weight: v.$font-semibold;
-                font-size: v.$font-2xl;
+                font-size: v.$font-xl;
             }
         }
 
@@ -83,7 +83,7 @@
             padding: 16px 48px;
             max-width: 310px;
             width: 100%;
-            font-size: v.$font-xl;
+            font-size: v.$font-lg;
             color: white;
             background-color: v.$primary-orange;
             border: none;
@@ -120,11 +120,11 @@
                 gap: 4px;
 
                 .deliveryTitle {
-                    font-size: v.$font-2xl;
+                    font-size: v.$font-xl;
                 }
 
                 .deliveryDescription {
-                    font-size: v.$font-xl;
+                    font-size: v.$font-lg;
                 }
             }
 

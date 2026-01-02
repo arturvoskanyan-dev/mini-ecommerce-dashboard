@@ -20,7 +20,7 @@
     }
 
     .title {
-        font-size: v.$font-xl;
+        font-size: v.$font-lg;
     }
 
     .removeBtn {
@@ -30,7 +30,7 @@
         background: transparent;
         border: none;
         text-align: start;
-        font-size: v.$font-xl;
+        font-size: v.$font-lg;
         color: v.$primary-gray;
 
         .removeIcon {
@@ -62,7 +62,7 @@
                 width: 42px;
                 height: 44px;
                 color: v.$primary-orange;
-                font-size: v.$font-xl;
+                font-size: v.$font-lg;
                 font-weight: v.$font-semibold;
                 border: none;
                 background: transparent;
@@ -70,13 +70,13 @@
 
             .count {
                 color: v.$primary-orange;
-                font-size: v.$font-xl;
+                font-size: v.$font-lg;
             }
         }
     }
 
     .price {
         color: v.$primary-gray;
-        font-size: v.$font-xl;
+        font-size: v.$font-lg;
     }
 }
