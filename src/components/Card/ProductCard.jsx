@@ -4,13 +4,28 @@ import styles from "./ProductCard.module.scss";
 import StarIcon from '../Icons/Star';
 import CartIcon from '../Icons/CartIcon';
 
-export default function ProductCard({ product, onAddToCart }) {
+export default function ProductCard({ product, cartItem, onAddToCart, onIncrement, onDecrement }) {
     const { id, image, title, price, rating } = product;
+    const isInCart = !!cartItem;
+    const count = cartItem?.count;
 
     const handleAddToCart = (e) => {
         e.preventDefault();
         onAddToCart(product)
     }
+
+    const handleIncrement = (e) => {
+        e.preventDefault();
+        onIncrement(id);
+    }
+
+    const handleDecrement = (e) => {
+        e.preventDefault();
+        onDecrement(id);
+    }
+
+    console.log(isInCart, count);
+
 
     return (
         <CardBase
@@ -28,14 +43,32 @@ export default function ProductCard({ product, onAddToCart }) {
                     {rating.rate}
                 </span>
             </div>
-
-            <button
-                onClick={handleAddToCart}
-                className={styles.cartBtn}
-            >
-                <CartIcon className={styles.cartIcon} />
-                Add to cart
-            </button>
+            {
+                !isInCart ?
+                    <button
+                        onClick={handleAddToCart}
+                        className={styles.cartBtn}
+                    >
+                        <CartIcon className={styles.cartIcon} />
+                        Add to cart
+                    </button>
+                    :
+                    <div className={styles.quantityControls}>
+                        <button
+                            className={styles.minusBtn}
+                            onClick={handleDecrement}
+                        >
+                            -
+                        </button>
+                        <span className={styles.count}>{cartItem?.count}</span>
+                        <button
+                            className={styles.plusBtn}
+                            onClick={handleIncrement}
+                        >
+                            +
+                        </button>
+                    </div>
+            }
         </CardBase>
     )
 }

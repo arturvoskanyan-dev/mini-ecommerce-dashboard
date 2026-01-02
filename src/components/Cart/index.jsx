@@ -37,7 +37,7 @@ export default function Cart() {
         >
             <header className={styles.header}>
                 <h2 className={styles.title}>
-                    Your Cart ({products.length})
+                    Your Cart 
                 </h2>
                 <button
                     className={styles.closeBtn}

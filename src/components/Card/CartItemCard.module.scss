@@ -47,31 +47,29 @@
         gap: 12px;
 
         .quantityControls {
-            // padding: 4px;
+            padding: 5px 12px;
+            width: 100%;
+            height: 44px;
             display: flex;
+            justify-content: space-between;
             align-items: center;
             gap: 16px;
-            border: 1px solid v.$primary-gray;
+            border-radius: v.$radius-lg;
+            background-color: v.$quantity-bg;
 
-            .minusBtn, .plusBtn {
-                padding: 4px;
-                width: 42px;
-                font-size: v.$font-xl;
-                border: none;
-            }
-
-            .minusBtn {
-                background: transparent;
-                border-right: 1px solid v.$primary-gray;
-            }
-
+            .minusBtn,
             .plusBtn {
-                color: white;
-                background-color: v.$primary-orange;
+                width: 42px;
+                height: 44px;
+                color: v.$primary-orange;
                 font-size: v.$font-xl;
+                font-weight: v.$font-semibold;
+                border: none;
+                background: transparent;
             }
 
             .count {
+                color: v.$primary-orange;
                 font-size: v.$font-xl;
             }
         }

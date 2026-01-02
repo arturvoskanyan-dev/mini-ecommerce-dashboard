@@ -3,10 +3,11 @@ import styles from "./Products.module.scss";
 import { useDispatch, useSelector } from 'react-redux';
 import { getProducts } from '../../store/slices/products/productsThunk';
 import ProductCard from '../Card/ProductCard';
-import { addToCart } from '../../store/slices/cart/cartSlice';
+import { addToCart, decrementCartItem, incrementCartItem } from '../../store/slices/cart/cartSlice';
 
 export default function Products({ filters, sorts }) {
     const { products, loading, error } = useSelector((state) => state.products);
+    const cartProducts = useSelector((state) => state.cart.products);
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -74,6 +75,25 @@ export default function Products({ filters, sorts }) {
         return result;
     }, [products, filters, sorts])
 
+    const cartMap = useMemo(() => {
+        const map = new Map();
+        cartProducts.forEach((p) => {
+            map.set(p.id, p);
+        })
+        return map;
+    }, [cartProducts])
+
+    const handleIncrement = (id) => {
+        dispatch(incrementCartItem(id));
+    }
+
+    const handleDecrement = (id) => {
+        dispatch(decrementCartItem(id));
+    }
+
+    console.log(cartMap);
+    
+
     if (loading) return <div>Loading...</div>
     if (error) return <div>Error... {error}</div>
 
@@ -86,6 +106,9 @@ export default function Products({ filters, sorts }) {
                     <ProductCard
                         key={product.id}
                         product={product}
+                        cartItem={cartMap.get(product.id)}
+                        onIncrement={handleIncrement}
+                        onDecrement={handleDecrement}
                         onAddToCart={handleAddToCart}
                     />
                 ))
