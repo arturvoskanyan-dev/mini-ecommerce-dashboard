@@ -1,5 +1,9 @@
+@use "../../styles/variables.scss" as v;
+
 .layout {
     // display: flex;
+    // max-width: 1920px;
+    // margin: 0 auto;
 }
 
 .header {
@@ -9,7 +13,7 @@
 .main  {
     flex: 1;
     // padding: 0 40px 40px 170px;
-    padding: 0 20px 30px 136px;
+    padding: 0 30px 30px 136px;
 }
 
 .overlay {
@@ -17,4 +21,26 @@
     inset: 0;
     background-color: rgba(0, 0, 0, 0.4);
     z-index: 999;
+}
+
+@media (max-width: v.$laptop) {
+    .main {
+        padding: 0 30px 20px 126px;
+    }
+}
+
+@media (max-width: v.$tablet) {
+    .main {
+        padding: 0 30px 10px 116px;
+    }
+}
+
+@media (max-width: v.$small-tablet) {
+
+}
+
+@media (max-width: v.$mobile) {
+    .main {
+        padding: 0 20px 10px 100px;
+    }
 }

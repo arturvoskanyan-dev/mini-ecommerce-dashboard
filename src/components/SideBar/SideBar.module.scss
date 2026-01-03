@@ -13,64 +13,91 @@
     gap: 24px;
     background-color: v.$secondary-white;
     z-index: 50;
+}
 
-    .logo {
-        // width: 86px;
-        // height: 86px;
+.logo {
+    // width: 86px;
+    // height: 86px;
 
-        width: 76px;
-        height: 76px;
-        object-fit: contain;
-    }
+    width: 76px;
+    height: 76px;
+    object-fit: contain;
+}
 
-    .nav {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        // gap: 12px;
-        gap: 32px;
+.nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    // gap: 12px;
+    gap: 32px;
 
-        .navItem {
-            width: 60px;
-            height: 60px;
-            text-align: center;
-            border: 1px solid v.$secondary-white;
-            border-radius: v.$radius-md;
-            transition: 0.3s;
-            
-            .navIcon {
-                position: relative;
-                top: 25%;
-                width: 24px;
-                height: 24px;
-                color: v.$primary-gray;
-                fill: transparent;
-                cursor: pointer;
-                transition: 0.3s;
-            }
-            .navIcon:hover {
-                color: v.$primary-orange;
-            }
-        }
+}
 
-        .navItem_active {
-            background-color: white;
-            color: v.$primary-orange;
-            border: 1px solid v.$primary-white;
-        }
+.navItem {
+    width: 60px;
+    height: 60px;
+    text-align: center;
+    border: 1px solid v.$secondary-white;
+    border-radius: v.$radius-md;
+    transition: 0.3s;
 
-        .navItem_active > .navIcon{
-            color: v.$primary-orange;
-        }
+}
 
-        .cartIconWrapper {
-            position: relative;
-            cursor: pointer;
-        }
-    }
+.navIcon {
+    position: relative;
+    top: 25%;
+    width: 24px;
+    height: 24px;
+    color: v.$primary-gray;
+    fill: transparent;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.navIcon:hover {
+    color: v.$primary-orange;
+}
+
+.navItem_active {
+    background-color: white;
+    color: v.$primary-orange;
+    border: 1px solid v.$primary-white;
+}
+
+.navItem_active>.navIcon {
+    color: v.$primary-orange;
+}
+
+.cartIconWrapper {
+    position: relative;
+    cursor: pointer;
 }
 
 .line {
     width: 100%;
     border-bottom: 2px solid v.$primary-white;
+}
+
+@media (max-width: v.$laptop) {
+    .sidebar {
+        width: 90px;
+        padding: 4px 18px;
+    }
+}
+
+@media (max-width: v.$tablet) {
+    .sidebar {
+        width: 80px;
+        padding: 4px 16px;
+    }
+
+    .logo {
+        width: 60px;
+        height: 60px;
+    }
+
+    .navItem {
+        width: 48px;
+        height: 48px;
+    }
 }

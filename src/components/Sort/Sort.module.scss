@@ -44,3 +44,11 @@
     width: 100%;
     border-bottom: 2px solid v.$primary-white;
 }
+
+@media (max-width: v.$laptop) {
+    .sort {
+        padding: 16px;
+        gap: 20px;
+        width: 320px;
+    }
+}

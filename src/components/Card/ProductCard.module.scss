@@ -44,7 +44,7 @@
         align-items: center;
         gap: 8px;
         font-size: v.$font-base;
-        border: 2px solid v.$primary-white;
+        border: 1px solid v.$primary-white;
         border-radius: v.$radius-lg;
         background-color: transparent;
         transition: 0.3s;
@@ -92,4 +92,26 @@
         }
     }
 
+}
+
+@media (max-width: v.$laptop) {
+    .productCard {
+        width: 225px;
+
+        // .cartBtn {
+        //     padding: 10px;
+        // }
+    }
+}
+
+@media (max-width: v.$tablet) {
+
+}
+
+@media (max-width: v.$small-tablet) {
+    .productCard {
+        // max-width: 280px;
+        max-width: 280px;
+        width: 100%;
+    }
 }

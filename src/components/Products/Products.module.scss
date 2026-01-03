@@ -2,12 +2,31 @@
 
 .container {
     // padding: 28px;
+    width: 100%;
     padding: 22px;
     display: flex;
     flex-wrap: wrap;
-    // gap: 24px;
-    gap: 12px;
+    // gap: 12px;
+    gap: 16px;
     border: 1px solid v.$primary-white;
     border-bottom-left-radius: v.$radius-lg;
     border-bottom-right-radius: v.$radius-lg;
+}
+
+// .container {
+//     // padding: 28px;
+//     padding: 22px;
+//     display: grid;
+//     grid-template-columns: repeat(5, 1fr);
+//     gap: 16px;
+//     border: 1px solid v.$primary-white;
+//     border-bottom-left-radius: v.$radius-lg;
+//     border-bottom-right-radius: v.$radius-lg;
+// }
+
+@media (max-width: v.$laptop) {
+    .container {
+        padding: 16px;
+        gap: 12px;
+    }
 }
