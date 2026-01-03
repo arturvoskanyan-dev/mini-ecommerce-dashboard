@@ -1,5 +1,5 @@
 export default function searchProducts(products, searchInput) {
-    if (!searchInput?.trim()) return products;
+    if (!searchInput.trim()) return products;
 
     const search = searchInput.trim().toLowerCase();
     const exactMathces = []; // exact title match

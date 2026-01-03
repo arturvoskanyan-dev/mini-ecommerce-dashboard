@@ -1,10 +1,16 @@
-import React from 'react'
+import React, { memo } from 'react'
 import CardBase from './CardBase';
 import styles from "./ProductCard.module.scss";
 import StarIcon from '../Icons/Star';
 import CartIcon from '../Icons/CartIcon';
 
-export default function ProductCard({ product, cartItem, onAddToCart, onIncrement, onDecrement }) {
+export default memo(function ProductCard({ 
+    product, 
+    cartItem, 
+    onAddToCart,
+    onIncrement, 
+    onDecrement 
+}) {
     const { id, image, title, price, rating } = product;
     const isInCart = !!cartItem;
     const count = cartItem?.count;
@@ -23,9 +29,6 @@ export default function ProductCard({ product, cartItem, onAddToCart, onIncremen
         e.preventDefault();
         onDecrement(id);
     }
-
-    console.log(isInCart, count);
-
 
     return (
         <CardBase
@@ -60,7 +63,7 @@ export default function ProductCard({ product, cartItem, onAddToCart, onIncremen
                         >
                             -
                         </button>
-                        <span className={styles.count}>{cartItem?.count}</span>
+                        <span className={styles.count}>{count}</span>
                         <button
                             className={styles.plusBtn}
                             onClick={handleIncrement}
@@ -71,4 +74,4 @@ export default function ProductCard({ product, cartItem, onAddToCart, onIncremen
             }
         </CardBase>
     )
-}
+})
