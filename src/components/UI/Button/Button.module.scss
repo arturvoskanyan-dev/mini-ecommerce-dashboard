@@ -1,0 +1,90 @@
+@use "../../../styles/variables.scss" as v;
+
+.button {
+    cursor: pointer;
+    font-size: v.$font-base;
+    transition: 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    text-align: center;
+    border: none;
+    border-radius: v.$radius-lg;
+    background: transparent;
+}
+
+.cart {
+    padding: 12px;
+    border: 1px solid v.$primary-white;
+
+    svg {
+        width: 18px;
+        height: 18px;
+        fill: transparent;
+    }
+
+    &:hover {
+        color: white;
+        background-color: v.$primary-orange;
+        border-color: v.$primary-orange;
+    }
+}
+
+.counter {
+    width: 42px;
+    height: 44px;
+    color: v.$primary-orange;
+    font-size: v.$font-xl;
+    // font-weight: v.$font-semibold;
+}
+
+.close {
+    svg {
+        width: 30px;
+        height: 30px;
+        color: black;
+        transition: 0.3s;
+    }
+
+    &:hover>svg {
+        color: v.$primary-orange;
+    }
+}
+
+.remove {
+    justify-content: start;
+    // font-size: v.$font-lg;
+    color: v.$primary-gray;
+
+    svg {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+.checkout,
+.product {
+    padding: 16px 48px;
+    max-width: 310px;
+    width: 100%;
+    color: white;
+    background-color: v.$primary-orange;
+}
+
+.checkout {
+    margin: 0 auto;
+
+    &:disabled {
+        background-color: v.$primary-orange-disabled;
+        cursor: not-allowed;
+    }
+}
+
+.product {
+    font-size: v.$font-lg;
+
+    &:hover {
+        background-color: v.$primary-orange-light;
+    }
+}

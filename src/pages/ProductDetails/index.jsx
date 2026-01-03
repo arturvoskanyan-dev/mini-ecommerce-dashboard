@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useCallback, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom'
 import { getProductById } from '../../store/slices/products/productsThunk';
@@ -9,6 +9,7 @@ import { addToCart, decrementCartItem, incrementCartItem } from '../../store/sli
 import { openCart } from '../../store/slices/ui/uiSlice';
 import TruckIcon from '../../components/Icons/TruckIcon';
 import ReturnIcon from '../../components/Icons/ReturnIcon';
+import Button from '../../components/UI/Button';
 
 export default function ProductDetails() {
     const { id } = useParams();
@@ -21,24 +22,21 @@ export default function ProductDetails() {
         dispatch(getProductById(id));
     }, [dispatch, id])
 
-    const handleIncrement = () => {
+    const handleIncrement = useCallback(() => {
         dispatch(incrementCartItem(selectedProduct.id))
-    }
+    }, [dispatch, selectedProduct.id]);
 
-    const handleDecrement = () => {
+    const handleDecrement = useCallback(() => {
         dispatch(decrementCartItem(selectedProduct.id));
-    }
+    }, [dispatch, selectedProduct.id]);
 
-    const handleAddToCart = () => {
+    const handleAddToCart = useCallback(() => {
         dispatch(addToCart(selectedProduct));
-    }
+    }, [dispatch, selectedProduct]);
 
-    const handleOpenCart = () => {
+    const handleOpenCart = useCallback(() => {
         dispatch(openCart());
-    }
-
-
-    console.log(id);
+    }, [dispatch]);
 
     return (
         <CardBase
@@ -70,35 +68,35 @@ export default function ProductDetails() {
                 {
                     cartItem &&
                     <div className={styles.quantityControls}>
-                        <button
-                            className={styles.minusBtn}
+                        <Button
+                            variant='counter'
                             onClick={handleDecrement}
                         >
                             -
-                        </button>
+                        </Button>
                         <span className={styles.count}>{cartItem?.count}</span>
-                        <button
-                            className={styles.plusBtn}
+                        <Button
+                            variant='counter'
                             onClick={handleIncrement}
                         >
                             +
-                        </button>
+                        </Button>
                     </div>
                 }
                 {
                     !cartItem ?
-                        <button
-                            className={styles.productBtn}
+                        <Button
+                            variant="product"
                             onClick={handleAddToCart}
                         >
                             Add to cart
-                        </button>
-                        : <button
-                            className={styles.productBtn}
+                        </Button>
+                        : <Button
+                            variant="product"
                             onClick={handleOpenCart}
                         >
                             In the cart
-                        </button>
+                        </Button>
                 }
             </div>
             <div className={styles.delivery}>

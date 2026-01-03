@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useCallback, useMemo } from 'react'
 import styles from "./SideBar.module.scss";
 import ProductsIcon from '../Icons/ProductsIcon';
 import CartIcon from '../Icons/CartIcon';
@@ -8,16 +8,17 @@ import { openCart } from '../../store/slices/ui/uiSlice';
 import CartBadge from '../UI/CartBadge';
 
 export default function SideBar() {
-    const {products} = useSelector((state) => state.cart);
+    const { products } = useSelector((state) => state.cart);
     const dispatch = useDispatch();
 
-    const handleOpenCart = () => {
+    const handleOpenCart = useCallback(() => {
         dispatch(openCart());
-    }
+    }, [dispatch]);
 
-    const totalCount = products.reduce((acc, p) => (
-        acc = acc + p.count
-    ), 0);
+    const totalCount = useMemo(() =>
+        products.reduce((acc, p) => acc = acc + p.count, 0),
+        [products]
+    )
 
     return (
         <aside className={styles.sidebar}>

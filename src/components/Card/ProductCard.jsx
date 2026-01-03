@@ -3,13 +3,14 @@ import CardBase from './CardBase';
 import styles from "./ProductCard.module.scss";
 import StarIcon from '../Icons/Star';
 import CartIcon from '../Icons/CartIcon';
+import Button from '../UI/Button';
 
-export default memo(function ProductCard({ 
-    product, 
-    cartItem, 
+export default memo(function ProductCard({
+    product,
+    cartItem,
     onAddToCart,
-    onIncrement, 
-    onDecrement 
+    onIncrement,
+    onDecrement
 }) {
     const { id, image, title, price, rating } = product;
     const isInCart = !!cartItem;
@@ -48,28 +49,28 @@ export default memo(function ProductCard({
             </div>
             {
                 !isInCart ?
-                    <button
+                    <Button
                         onClick={handleAddToCart}
-                        className={styles.cartBtn}
+                        variant='cart'
                     >
-                        <CartIcon className={styles.cartIcon} />
+                        <CartIcon />
                         Add to cart
-                    </button>
+                    </Button>
                     :
                     <div className={styles.quantityControls}>
-                        <button
-                            className={styles.minusBtn}
+                        <Button
+                            variant='counter'
                             onClick={handleDecrement}
                         >
                             -
-                        </button>
+                        </Button>
                         <span className={styles.count}>{count}</span>
-                        <button
-                            className={styles.plusBtn}
+                        <Button
+                            variant='counter'
                             onClick={handleIncrement}
                         >
                             +
-                        </button>
+                        </Button>
                     </div>
             }
         </CardBase>

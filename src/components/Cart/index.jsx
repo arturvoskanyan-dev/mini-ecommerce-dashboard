@@ -1,30 +1,31 @@
-import React from 'react'
+import React, { useCallback } from 'react'
 import styles from "./Cart.module.scss";
 import { useDispatch, useSelector } from 'react-redux';
 import CloseIcon from '../Icons/CloseIcon';
 import { closeCart } from '../../store/slices/ui/uiSlice';
 import { decrementCartItem, incrementCartItem, removeCart } from '../../store/slices/cart/cartSlice';
 import CartItemCard from '../Card/CartItemCard';
+import Button from '../UI/Button';
 
 export default function Cart() {
     const { products } = useSelector((state) => state.cart);
     const dispatch = useDispatch();
 
-    const handleCloseCart = () => {
+    const handleCloseCart = useCallback(() => {
         dispatch(closeCart());
-    }
+    }, [dispatch])
 
-    const handleRemoveCart = (id) => {
+    const handleRemoveCart = useCallback((id) => {
         dispatch(removeCart(id));
-    }
+    }, [dispatch])
 
-    const handleIncrement = (id) => {
+    const handleIncrement = useCallback((id) => {
         dispatch(incrementCartItem(id));
-    }
+    }, [dispatch])
 
-    const handleDecrement = (id) => {
+    const handleDecrement = useCallback((id) => {
         dispatch(decrementCartItem(id));
-    }
+    }, [dispatch])
 
     const subTotal = products.reduce((acc, p) => (
         acc += p.count * p.price
@@ -37,14 +38,14 @@ export default function Cart() {
         >
             <header className={styles.header}>
                 <h2 className={styles.title}>
-                    Your Cart 
+                    Your Cart
                 </h2>
-                <button
-                    className={styles.closeBtn}
+                <Button
+                    variant="close"
                     onClick={handleCloseCart}
                 >
-                    <CloseIcon className={styles.closeIcon} />
-                </button>
+                    <CloseIcon />
+                </Button>
             </header>
 
             <div className={styles.content}>
@@ -79,9 +80,12 @@ export default function Cart() {
                         <span>${subTotal.toFixed(2)}</span>
                     </div>
                 </div>
-                <button className={styles.checkoutBtn} disabled>
+                <Button
+                    variant='checkout'
+                    disabled={true}
+                >
                     Procees to checkout
-                </button>
+                </Button>
             </footer>
         </aside>
     )

@@ -37,32 +37,6 @@
         }
     }
 
-    .cartBtn {
-        padding: 12px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 8px;
-        font-size: v.$font-base;
-        border: 1px solid v.$primary-white;
-        border-radius: v.$radius-lg;
-        background-color: transparent;
-        transition: 0.3s;
-
-        .cartIcon {
-            width: 18px;
-            height: 18px;
-            fill: transparent;
-        }
-    }
-
-    .cartBtn:hover {
-        color: white;
-        background-color: v.$primary-orange;
-        fill: white;
-        border-color: v.$primary-orange;
-    }
-
     .quantityControls {
         padding: 5px 12px;
         width: 100%;
@@ -74,21 +48,11 @@
         border-radius: v.$radius-lg;
         background-color: v.$quantity-bg;
 
-        .minusBtn,
-        .plusBtn {
-            width: 42px;
-            height: 44px;
-            color: v.$primary-orange;
-            font-size: v.$font-xl;
-            font-weight: v.$font-semibold;
-            border: none;
-            background: transparent;
-        }
-
         .count {
             color: v.$primary-orange;
-            font-weight: v.$font-semibold;
+            // font-weight: v.$font-semibold;
             font-size: v.$font-xl;
+            // font-size: v.$font-lg;
         }
     }
 

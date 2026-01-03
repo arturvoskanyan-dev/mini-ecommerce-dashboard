@@ -22,22 +22,6 @@
         .title {
             font-size: v.$font-2xl;
         }
-
-        .closeBtn {
-            background: transparent;
-            border: none;
-
-            .closeIcon {
-                width: 30px;
-                height: 30px;
-                color: black;
-                transition: 0.3s;
-            }
-        }
-
-        .closeBtn:hover>.closeIcon {
-            color: v.$primary-orange;
-        }
     }
 
     .content {
@@ -78,24 +62,6 @@
                 width: 100%;
                 border-bottom: 2px solid v.$primary-white;
             }
-        }
-
-        .checkoutBtn {
-            margin: 0 auto;
-            padding: 16px 48px;
-            max-width: 310px;
-            width: 100%;
-            // height: 56px;
-            font-size: v.$font-base;
-            color: white;
-            background-color: v.$primary-orange;
-            border: none;
-            border-radius: v.$radius-md;
-        }
-
-        .checkoutBtn:disabled {
-            background-color: v.$primary-orange-disabled;
-            cursor: not-allowed;
         }
     }
 }

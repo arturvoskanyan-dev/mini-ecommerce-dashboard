@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useCallback, useEffect } from 'react'
 import SideBar from '../SideBar'
 import { Outlet, useLocation } from 'react-router-dom'
 import styles from "./Layout.module.scss";
@@ -12,9 +12,9 @@ export default function Layout() {
     const location = useLocation();
     const dispatch = useDispatch();
 
-    const handleCloseCart = () => {
+    const handleCloseCart = useCallback(() => {
         dispatch(closeCart());
-    }
+    }, [dispatch]);
 
     // close the cart overlay when the route change
     useEffect(() => {

@@ -2,6 +2,7 @@ import React from 'react'
 import CardBase from './CardBase';
 import styles from "./CartItemCard.module.scss";
 import RemoveIcon from '../Icons/RemoveIcon';
+import Button from '../UI/Button';
 
 export default function CartItemCard({ product, onIncrement, onDecrement, onRemove }) {
     const { id, image, title, price, count } = product;
@@ -30,29 +31,29 @@ export default function CartItemCard({ product, onIncrement, onDecrement, onRemo
         >
             <div className={styles.details}>
                 <h3 className={styles.title}>{title}</h3>
-                <button
-                    className={styles.removeBtn}
+                <Button
+                    variant='remove'
                     onClick={handleRemoveCart}
                 >
-                    <RemoveIcon className={styles.removeIcon} />
+                    <RemoveIcon />
                     <span>Remove</span>
-                </button>
+                </Button>
             </div>
             <div className={styles.itemControls}>
                 <div className={styles.quantityControls}>
-                    <button
-                        className={styles.minusBtn}
+                    <Button
+                        variant="counter"
                         onClick={handleDecrement}
                     >
                         -
-                    </button>
+                    </Button>
                     <span className={styles.count}>{count}</span>
-                    <button
-                        className={styles.plusBtn}
+                    <Button
+                        variant='counter'
                         onClick={handleIncrement}
                     >
                         +
-                    </button>
+                    </Button>
                 </div>
                 <h3 className={styles.price}>
                     ${price}

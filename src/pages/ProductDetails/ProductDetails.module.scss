@@ -64,37 +64,10 @@
     background-color: v.$quantity-bg;
 }
 
-.minusBtn,
-.plusBtn {
-    width: 42px;
-    height: 44px;
-    color: v.$primary-orange;
-    font-size: v.$font-xl;
-    font-weight: v.$font-semibold;
-    border: none;
-    background: transparent;
-}
-
 .count {
     color: v.$primary-orange;
     font-weight: v.$font-semibold;
     font-size: v.$font-xl;
-}
-
-.productBtn {
-    padding: 16px 48px;
-    max-width: 310px;
-    width: 100%;
-    font-size: v.$font-lg;
-    color: white;
-    background-color: v.$primary-orange;
-    border: none;
-    border-radius: v.$radius-md;
-    transition: 0.3s;
-}
-
-.productBtn:hover {
-    background-color: v.$primary-orange-light;
 }
 
 .delivery {
