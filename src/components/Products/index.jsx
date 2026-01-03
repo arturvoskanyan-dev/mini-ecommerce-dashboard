@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getProducts } from '../../store/slices/products/productsThunk';
 import ProductCard from '../Card/ProductCard';
 import { addToCart, decrementCartItem, incrementCartItem } from '../../store/slices/cart/cartSlice';
+import searchProducts from '../../utils/productSearch';
 
 export default function Products({ filters, sorts }) {
     const { products, loading, error } = useSelector((state) => state.products);
@@ -17,7 +18,7 @@ export default function Products({ filters, sorts }) {
     const handleAddToCart = (product) => {
         dispatch(addToCart(product));
     }
-
+    
     // filter products and use useMemo to avoid re-renders
     const filteredProducts = useMemo(() => {
         if (!products) return [];
@@ -27,9 +28,10 @@ export default function Products({ filters, sorts }) {
         /* Filter */
         // filter by search query
         if (filters.search) {
-            result = result.filter((product) => (
-                product.title.toLowerCase().includes(filters.search.toLowerCase())
-            ))
+            // result = result.filter((product) => (
+            //     product.title.toLowerCase().includes(filters.search.toLowerCase())
+            // ))
+            result = searchProducts(result, filters.search)
         }
 
         //filter by selected categories
@@ -92,7 +94,7 @@ export default function Products({ filters, sorts }) {
     }
 
     console.log(cartMap);
-    
+
 
     if (loading) return <div>Loading...</div>
     if (error) return <div>Error... {error}</div>
