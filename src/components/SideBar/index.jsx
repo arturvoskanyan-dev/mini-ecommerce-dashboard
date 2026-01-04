@@ -5,7 +5,7 @@ import CartIcon from '../Icons/CartIcon';
 import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { openCart } from '../../store/slices/ui/uiSlice';
-import CartBadge from '../UI/CartBadge';
+import CartBadge from '../ui/CartBadge';
 
 export default function SideBar() {
     const { products } = useSelector((state) => state.cart);

@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { memo } from 'react'
 import styles from "./Filter.module.scss";
+import { RATING_OPTIONS } from '../../constants/filters';
 
-export default function RatingFilter({ value, onChange }) {
+export default memo(function RatingFilter({ value, onChange }) {
     const handleChangeRating = (e) => {
         onChange(+e.target.value)
     }
@@ -19,14 +20,13 @@ export default function RatingFilter({ value, onChange }) {
                     onChange={handleChangeRating}
                     className={styles.ratingSelect}
                 >
-                    <option value={0}>All</option>
-                    <option value={1}>1</option>
-                    <option value={2}>2</option>
-                    <option value={3}>3</option>
-                    <option value={4}>4</option>
-                    <option value={5}>5</option>
+                    {RATING_OPTIONS.map((opt) => (
+                        <option key={opt} value={opt}>
+                            {opt === 0 ? "All" : opt}
+                        </option>
+                    ))}
                 </select>
             </div>
         </div>
     )
-}
+})

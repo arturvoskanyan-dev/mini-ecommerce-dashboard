@@ -9,7 +9,7 @@ import { addToCart, decrementCartItem, incrementCartItem } from '../../store/sli
 import { openCart } from '../../store/slices/ui/uiSlice';
 import TruckIcon from '../../components/Icons/TruckIcon';
 import ReturnIcon from '../../components/Icons/ReturnIcon';
-import Button from '../../components/UI/Button';
+import Button from '../../components/ui/Button';
 
 export default function ProductDetails() {
     const { id } = useParams();

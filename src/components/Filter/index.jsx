@@ -1,28 +1,22 @@
-import React from 'react'
+import React, { useCallback } from 'react'
 import styles from "./Filter.module.scss";
 import CategoryFilter from './CategoryFilter';
 import PriceFilter from './PriceFilter';
 import RatingFilter from './RatingFilter';
+import { CATEGORIES } from '../../constants/filters';
 
 export default function Filter({ filters, setFilters }) {
-    const categories = [
-        "men's clothing",
-        "women's clothing",
-        "jewelery",
-        "electronics",
-    ]
-
-    const handleChangeCategory = (categories) => {
+    const handleChangeCategory = useCallback((categories) => {
         setFilters((prev) => ({...prev, category: categories}));
-    };
+    }, [setFilters]);
 
-    const handleChangePrice = (min, max) => {
+    const handleChangePrice = useCallback((min, max) => {
         setFilters((prev) => ({...prev, minPrice: min, maxPrice: max}));
-    }
+    }, [setFilters])
 
-    const handleChangeRating = (rating) => {
+    const handleChangeRating = useCallback((rating) => {
         setFilters((prev) => ({...prev, minRating: rating}));
-    };
+    }, [setFilters]);
 
     return (
         <div className={styles.container}>
@@ -31,7 +25,7 @@ export default function Filter({ filters, setFilters }) {
             <div className={styles.line} />
 
             <CategoryFilter 
-                categories={categories}
+                categories={CATEGORIES}
                 selected={filters.category}
                 onChange={handleChangeCategory}
             />

@@ -3,7 +3,7 @@ import CardBase from './CardBase';
 import styles from "./ProductCard.module.scss";
 import StarIcon from '../Icons/Star';
 import CartIcon from '../Icons/CartIcon';
-import Button from '../UI/Button';
+import Button from '../ui/Button';
 
 export default memo(function ProductCard({
     product,

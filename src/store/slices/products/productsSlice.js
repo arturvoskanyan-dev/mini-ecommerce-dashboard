@@ -26,7 +26,7 @@ const productsSlice = createSlice({
         })
         .addCase(getProducts.rejected, (state, action) => {
             state.loading = false;
-            state.error = action.error.message;
+            state.error = action.payload || action.error.message;
         })
 
         // getProductById
@@ -41,7 +41,7 @@ const productsSlice = createSlice({
         })
         .addCase(getProductById.rejected, (state, action) => {
             state.loading = false;
-            state.error = action.error.message;
+            state.error = action.payload || action.error.message;
         })
     }
 })

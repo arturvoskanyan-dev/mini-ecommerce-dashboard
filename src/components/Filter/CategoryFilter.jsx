@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { memo } from 'react'
 import styles from "./Filter.module.scss";
 
-export default function CategoryFilter({ categories, selected, onChange }) {
+export default memo(function CategoryFilter({ categories, selected, onChange }) {
     const handleChangeCategory = (e) => {
         const { value, checked } = e.target;
 
@@ -33,4 +33,4 @@ export default function CategoryFilter({ categories, selected, onChange }) {
             </div>
         </div>
     )
-}
+})

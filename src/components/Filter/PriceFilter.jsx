@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
+import React, { memo, useCallback, useState } from 'react'
 import styles from "./Filter.module.scss";
 
-export default function PriceFilter({ min, max, onChange }) {
+export default memo(function PriceFilter({ min, max, onChange }) {
     const [localMin, setLocalMin] = useState(min);
     const [localMax, setLocalMax] = useState(max);
 
@@ -10,7 +10,7 @@ export default function PriceFilter({ min, max, onChange }) {
         onChange(localMin, localMax)
     }
 
-    const handleChange = (e, type) => {
+    const handleChange = useCallback((e, type) => {
         const value = +e.target.value;
 
         if (/^\d*$/.test(value)) {
@@ -18,11 +18,11 @@ export default function PriceFilter({ min, max, onChange }) {
                 ? setLocalMin(Math.min(value, localMax))
                 : setLocalMax(Math.max(value, localMin));
         }
-    }
+    }, [localMin, localMax])
 
     // range calculation for dual slider hilghlight
     const left = (localMin / 10); // starting position
-    const width = (localMax - localMin) / 10; // line width
+    const width = (localMax - localMin) / 10; // line width    
 
     return (
         <div className={styles.sectionContainer}>
@@ -81,4 +81,4 @@ export default function PriceFilter({ min, max, onChange }) {
             </div>
         </div>
     )
-}
+})

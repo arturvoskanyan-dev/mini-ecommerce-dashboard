@@ -2,10 +2,10 @@ import React, { useState } from 'react'
 import Products from '../../components/Products'
 import Search from '../../components/Search'
 import Filter from '../../components/Filter';
-import styles from "./Home.module.scss";
+import styles from "./Products.module.scss";
 import Sort from '../../components/Sort';
 
-export default function Home() {
+export default function ProductsPage() {
   const [sorts, setSorts] = useState([
     { criteria: "price", direction: "asc", enabled: false },
     { criteria: "title", direction: "asc", enabled: false },
@@ -18,8 +18,6 @@ export default function Home() {
     minRating: 0,
     sort: ""
   })
-
-  console.log(sorts);
 
   return (
     <div className={styles.container}>

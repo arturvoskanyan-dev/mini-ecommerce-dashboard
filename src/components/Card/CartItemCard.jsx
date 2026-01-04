@@ -1,10 +1,10 @@
-import React from 'react'
+import React, { memo } from 'react'
 import CardBase from './CardBase';
 import styles from "./CartItemCard.module.scss";
 import RemoveIcon from '../Icons/RemoveIcon';
-import Button from '../UI/Button';
+import Button from '../ui/Button';
 
-export default function CartItemCard({ product, onIncrement, onDecrement, onRemove }) {
+export default memo(function CartItemCard({ product, onIncrement, onDecrement, onRemove }) {
     const { id, image, title, price, count } = product;
 
     const handleRemoveCart = (e) => {
@@ -61,4 +61,4 @@ export default function CartItemCard({ product, onIncrement, onDecrement, onRemo
             </div>
         </CardBase>
     )
-}
+})

@@ -5,7 +5,7 @@ import CloseIcon from '../Icons/CloseIcon';
 import { closeCart } from '../../store/slices/ui/uiSlice';
 import { decrementCartItem, incrementCartItem, removeCart } from '../../store/slices/cart/cartSlice';
 import CartItemCard from '../Card/CartItemCard';
-import Button from '../UI/Button';
+import Button from '../ui/Button';
 
 export default function Cart() {
     const { products } = useSelector((state) => state.cart);

@@ -5,7 +5,7 @@ import styles from "./Layout.module.scss";
 import Cart from '../Cart';
 import { useDispatch, useSelector } from 'react-redux';
 import { closeCart } from '../../store/slices/ui/uiSlice';
-import PageHeader from '../UI/PageHeader';
+import PageHeader from '../ui/PageHeader';
 
 export default function Layout() {
     const { isCartOpen } = useSelector((state) => state.ui);
