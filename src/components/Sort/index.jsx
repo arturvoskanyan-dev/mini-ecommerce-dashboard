@@ -1,9 +1,10 @@
-import React, { memo } from 'react'
+import React, { memo, useCallback, useMemo } from 'react'
 import styles from "./Sort.module.scss";
 import { SORT_CONFIG } from '../../constants/sortConfig';
+import SortItem from './SortItem';
 
 export default memo(function Sort({ sorts, setSorts }) {
-    const handleChange = (e) => {
+    const handleChange = useCallback((e) => {
         const [criteria, direction] = e.target.value.split("-");
 
         setSorts((prev) => (
@@ -11,12 +12,13 @@ export default memo(function Sort({ sorts, setSorts }) {
                 sort.criteria === criteria ? { ...sort, direction, enabled: true } : sort
             ))
         ))
-    }
-
-    const getSortValue = (sorts, criteria) => {
-        const sort = sorts.find((s) => s.criteria === criteria);
-        return sort ? `${sort.criteria}-${sort.direction}` : "";
-    }
+    }, [setSorts])
+    
+    const sortValues = useMemo(() => {
+        const map = new Map();
+        sorts.forEach((s) => map.set(s.criteria, `${s.criteria}-${s.direction}`));
+        return map;
+    }, [sorts])
 
     return (
         <div className={styles.sort}>
@@ -26,24 +28,14 @@ export default memo(function Sort({ sorts, setSorts }) {
 
             <div className={styles.sortControls}>
                 {SORT_CONFIG.map(({ criteria, label, options }) => (
-                    <div className={styles.sortItem} key={criteria}>
-                        <h3 className={styles.sortTitle}>{label}</h3>
-
-                        <select
-                            className={styles.sortSelect}
-                            value={getSortValue(sorts, criteria)}
-                            onChange={handleChange}
-                        >
-                            {options.map((opt) => (
-                                <option
-                                    key={opt.value}
-                                    value={`${criteria}-${opt.value}`}
-                                >
-                                    {opt.label}
-                                </option>
-                            ))}
-                        </select>
-                    </div>
+                    <SortItem 
+                        key={criteria}
+                        criteria={criteria}
+                        label={label}
+                        options={options}
+                        value={sortValues.get(criteria)}
+                        onChange={handleChange}
+                    />
                 ))}
             </div>
         </div>

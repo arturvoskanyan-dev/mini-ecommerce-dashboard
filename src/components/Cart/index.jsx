@@ -1,11 +1,11 @@
-import React, { useCallback } from 'react'
+import React, { useCallback, useMemo } from 'react'
 import styles from "./Cart.module.scss";
 import { useDispatch, useSelector } from 'react-redux';
-import CloseIcon from '../Icons/CloseIcon';
 import { closeCart } from '../../store/slices/ui/uiSlice';
 import { decrementCartItem, incrementCartItem, removeCart } from '../../store/slices/cart/cartSlice';
-import CartItemCard from '../Card/CartItemCard';
-import Button from '../ui/Button';
+import CartHeader from './CartHeader';
+import CartContent from './CartContent';
+import CartFooter from './CartFooter';
 
 export default function Cart() {
     const { products } = useSelector((state) => state.cart);
@@ -27,66 +27,25 @@ export default function Cart() {
         dispatch(decrementCartItem(id));
     }, [dispatch])
 
-    const subTotal = products.reduce((acc, p) => (
-        acc += p.count * p.price
-    ), 0);
+    const subTotal = useMemo(() => {
+        return products.reduce((acc, p) => acc += p.count * p.price, 0);
+    }, [products]);
 
     return (
         <aside
             className={styles.cart}
             onClick={(e) => e.stopPropagation()}
         >
-            <header className={styles.header}>
-                <h2 className={styles.title}>
-                    Your Cart
-                </h2>
-                <Button
-                    variant="close"
-                    onClick={handleCloseCart}
-                >
-                    <CloseIcon />
-                </Button>
-            </header>
+            <CartHeader onClose={handleCloseCart} />
 
-            <div className={styles.content}>
-                {
-                    products.map((product) => (
-                        <CartItemCard
-                            key={product.id}
-                            product={product}
-                            onRemove={handleRemoveCart}
-                            onIncrement={handleIncrement}
-                            onDecrement={handleDecrement}
-                        />
-                    ))
-                }
-            </div>
+            <CartContent
+                products={products}
+                onRemove={handleRemoveCart}
+                onIncrement={handleIncrement}
+                onDecrement={handleDecrement}
+            />
 
-            <footer className={styles.footer}>
-                <h2 className={styles.totalTitle}>Cart Total</h2>
-                <div className={styles.total}>
-                    <div className={styles.totalRow}>
-                        <span>Subtotal:</span>
-                        <span>${subTotal.toFixed(2)}</span>
-                    </div>
-                    <div className={styles.line} />
-                    <div className={styles.totalRow}>
-                        <span>Shipping:</span>
-                        <span>Free</span>
-                    </div>
-                    <div className={styles.line} />
-                    <div className={styles.totalRow}>
-                        <span>Total:</span>
-                        <span>${subTotal.toFixed(2)}</span>
-                    </div>
-                </div>
-                <Button
-                    variant='checkout'
-                    disabled={true}
-                >
-                    Procees to checkout
-                </Button>
-            </footer>
+            <CartFooter subTotal={subTotal} />
         </aside>
     )
 }

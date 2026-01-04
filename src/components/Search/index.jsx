@@ -1,8 +1,8 @@
-import React, { memo, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import styles from "./Search.module.scss";
 import SearchIcon from '../Icons/SearchIcon';
 
-export default memo(function Search({ filters, setFilters }) {
+export default function Search({ filters, setFilters }) {
     const [query, setQuery] = useState(filters.search);
 
     const handleChange = (e) => {
@@ -32,4 +32,4 @@ export default memo(function Search({ filters, setFilters }) {
             />
         </div>
     )
-})
+}

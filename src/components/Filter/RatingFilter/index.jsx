@@ -1,6 +1,7 @@
 import React, { memo } from 'react'
-import styles from "./Filter.module.scss";
-import { RATING_OPTIONS } from '../../constants/filters';
+import styles from "./RatingFilter.module.scss";
+import { RATING_OPTIONS } from '../../../constants/filters';
+import Option from '../../ui/Option/Option';
 
 export default memo(function RatingFilter({ value, onChange }) {
     const handleChangeRating = (e) => {
@@ -21,9 +22,11 @@ export default memo(function RatingFilter({ value, onChange }) {
                     className={styles.ratingSelect}
                 >
                     {RATING_OPTIONS.map((opt) => (
-                        <option key={opt} value={opt}>
-                            {opt === 0 ? "All" : opt}
-                        </option>
+                        <Option
+                            key={opt}
+                            value={opt}
+                            label={opt === 0 ? "All" : opt}
+                        />
                     ))}
                 </select>
             </div>

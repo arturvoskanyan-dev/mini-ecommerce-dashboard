@@ -1,0 +1,30 @@
+@use "../../../styles/variables.scss" as v;
+
+.sectionContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+
+    .sectionTitle {
+        font-size: v.$font-xl;
+    }
+}
+
+.categoryContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+
+    .categoryLabel {
+        font-size: v.$font-lg;
+        font-weight: v.$font-medium;
+        display: flex;
+        gap: 6px;
+        cursor: pointer;
+
+        .checkbox {
+            width: 18px;
+            accent-color: v.$primary-orange;
+        }
+    }
+}

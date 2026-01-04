@@ -1,21 +1,19 @@
-import React, { useCallback, useEffect } from 'react'
+import React, { useCallback, useEffect, useMemo } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom'
 import { getProductById } from '../../store/slices/products/productsThunk';
 import CardBase from '../../components/Card/CardBase';
 import styles from "./ProductDetails.module.scss";
-import StarIcon from '../../components/Icons/Star';
 import { addToCart, decrementCartItem, incrementCartItem } from '../../store/slices/cart/cartSlice';
 import { openCart } from '../../store/slices/ui/uiSlice';
-import TruckIcon from '../../components/Icons/TruckIcon';
-import ReturnIcon from '../../components/Icons/ReturnIcon';
-import Button from '../../components/ui/Button';
+import ProductControls from './ProductControls';
+import ProductInfo from './ProductInfo';
+import ProductDelivery from './ProductDelivery';
 
 export default function ProductDetails() {
     const { id } = useParams();
     const { selectedProduct } = useSelector((state) => state.products);
     const { products } = useSelector((state) => state.cart);
-    const cartItem = products.find((p) => p.id === selectedProduct.id);
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -38,6 +36,11 @@ export default function ProductDetails() {
         dispatch(openCart());
     }, [dispatch]);
 
+    const cartItem = useMemo(() => {
+        if (!selectedProduct) return null;
+        return products.find((p) => p.id === selectedProduct.id);
+    }, [products, selectedProduct]);
+
     return (
         <CardBase
             clickable={false}
@@ -45,84 +48,23 @@ export default function ProductDetails() {
             image={selectedProduct?.image}
             className={styles.productDetails}
         >
-            <h2 className={styles?.title}>
-                {selectedProduct.title}
-            </h2>
-            <span className={styles.ratingContent}>
-                <StarIcon className={styles.starIcon} />
-                <span className={styles.rating}>
-                    {selectedProduct?.rating?.rate}
-                </span>
-                <span>
-                    ({selectedProduct?.rating?.count})
-                </span>
-            </span>
-            <h3 className={styles.price}>
-                ${selectedProduct?.price}
-            </h3>
-            <p className={styles.description}>
-                {selectedProduct?.description}
-            </p>
+            <ProductInfo
+                title={selectedProduct.title}
+                price={selectedProduct.price}
+                description={selectedProduct.description}
+                rating={selectedProduct.rating}
+            />
+
             <div className={styles.line} />
-            <div className={styles.productControls}>
-                {
-                    cartItem &&
-                    <div className={styles.quantityControls}>
-                        <Button
-                            variant='counter'
-                            onClick={handleDecrement}
-                        >
-                            -
-                        </Button>
-                        <span className={styles.count}>{cartItem?.count}</span>
-                        <Button
-                            variant='counter'
-                            onClick={handleIncrement}
-                        >
-                            +
-                        </Button>
-                    </div>
-                }
-                {
-                    !cartItem ?
-                        <Button
-                            variant="product"
-                            onClick={handleAddToCart}
-                        >
-                            Add to cart
-                        </Button>
-                        : <Button
-                            variant="product"
-                            onClick={handleOpenCart}
-                        >
-                            In the cart
-                        </Button>
-                }
-            </div>
-            <div className={styles.delivery}>
-                <div className={styles.deliveryItem}>
-                    <TruckIcon className={styles.deliveryIcon} />
-                    <div className={styles.deliveryDetails}>
-                        <h3 className={styles.deliveryTitle}>
-                            Free Delivery
-                        </h3>
-                        <p className={styles.deliveryDescription}>
-                            Enter your postal code for Delivery Availability
-                        </p>
-                    </div>
-                </div>
-                <div className={styles.deliveryItem}>
-                    <ReturnIcon className={styles.deliveryIcon} />
-                    <div className={styles.deliveryDetails}>
-                        <h3 className={styles.deliveryTitle}>
-                            Return Delivery
-                        </h3>
-                        <p className={styles.deliveryDescription}>
-                            Free 30 Days Delivery Returns. Details
-                        </p>
-                    </div>
-                </div>
-            </div>
+
+            <ProductControls
+                cartItem={cartItem}
+                onIncrement={handleIncrement}
+                onDecrement={handleDecrement}
+                onAddToCart={handleAddToCart}
+                onOpenCart={handleOpenCart}
+            />
+            <ProductDelivery />
         </CardBase >
     )
 }

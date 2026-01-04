@@ -1,0 +1,31 @@
+@use "../../../styles/variables.scss" as v;
+
+.sectionContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+
+    .sectionTitle {
+        font-size: v.$font-xl;
+    }
+
+    .ratingContent {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+
+        .ratingLabel {
+            font-size: v.$font-base;
+            font-weight: v.$font-semibold;
+        }
+
+        .ratingSelect {
+            padding: 12px 14px;
+            font-size: v.$font-base;
+            border: 1px solid v.$primary-white;
+            border-radius: v.$radius-md;
+            background-color: transparent;
+            outline: none;
+        }
+    }
+}
