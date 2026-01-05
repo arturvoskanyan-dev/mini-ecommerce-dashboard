@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import styles from "./Search.module.scss";
 import SearchIcon from '../Icons/SearchIcon';
+import Button from '../ui/Button';
 
 export default function Search({ filters, setFilters, onOpen }) {
     const [query, setQuery] = useState(filters.search);
@@ -32,12 +33,12 @@ export default function Search({ filters, setFilters, onOpen }) {
                     className={styles.searchInput}
                 />
             </div>
-            <button
+            <Button
                 onClick={onOpen}
-                className={styles.filterSortBtn}
+                variant='openFilter'
             >
                 Filter & Sort
-            </button>
+            </Button>
         </div>
     )
 }

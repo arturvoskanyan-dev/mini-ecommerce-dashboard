@@ -1,0 +1,45 @@
+@use "../../../styles/variables.scss" as v;
+
+.dropdownWrapper {
+  position: relative;
+  width: 140px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.label {
+  // font-size: v.$font-lg;
+}
+
+.dropdownButton {
+  width: 100%;
+  padding: 8px 12px;
+  background-color: transparent;
+  border: 1px solid v.$primary-white;
+  border-radius: v.$radius-md;
+  font-size: v.$font-base;
+  text-align: left;
+  cursor: pointer;
+}
+
+.dropdownContent {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  font-size: v.$font-base;
+  background-color: v.$secondary-white;
+  box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
+  border-radius: v.$radius-md;
+  z-index: 10;
+}
+
+.dropdownItem {
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.dropdownItem:hover {
+  background-color: v.$select-bg-hover;
+}

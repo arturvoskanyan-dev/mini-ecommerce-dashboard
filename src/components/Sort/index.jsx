@@ -4,16 +4,18 @@ import { SORT_CONFIG } from '../../constants/sortConfig';
 import SortItem from './SortItem';
 
 export default memo(function Sort({ sorts, setSorts }) {
-    const handleChange = useCallback((e) => {
-        const [criteria, direction] = e.target.value.split("-");
+    const handleChange = useCallback((value) => {
+        const [criteria, direction] = value.split("-");
 
-        setSorts((prev) => (
-            prev.map((sort) => (
-                sort.criteria === criteria ? { ...sort, direction, enabled: true } : sort
-            ))
-        ))
+        setSorts((prev) =>
+            prev.map((sort) =>
+                sort.criteria === criteria
+                    ? { ...sort, direction, enabled: true }
+                    : sort
+            )
+        )
     }, [setSorts])
-    
+
     const sortValues = useMemo(() => {
         const map = new Map();
         sorts.forEach((s) => map.set(s.criteria, `${s.criteria}-${s.direction}`));
@@ -28,7 +30,7 @@ export default memo(function Sort({ sorts, setSorts }) {
 
             <div className={styles.sortControls}>
                 {SORT_CONFIG.map(({ criteria, label, options }) => (
-                    <SortItem 
+                    <SortItem
                         key={criteria}
                         criteria={criteria}
                         label={label}

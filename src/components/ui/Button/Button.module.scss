@@ -88,3 +88,17 @@
         background-color: v.$primary-orange-light;
     }
 }
+
+.openFilter {
+    display: none;
+    min-width: 90px;
+    padding: 12px;
+    font-size: v.$font-xs;
+    border: 1px solid v.$primary-white;
+}
+
+@media (max-width: v.$tablet) {
+    .openFilter {
+        display: block;
+    }
+}

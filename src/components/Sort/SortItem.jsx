@@ -1,26 +1,20 @@
 import React from 'react'
 import styles from "./Sort.module.scss";
 import Option from '../ui/Option/Option';
+import Dropdown from '../ui/Dropdown';
+import { SORT_CONFIG } from '../../constants/sortConfig';
 
-export default function SortItem({ label, criteria, onChange, options }, value) {
+export default function SortItem({ label, criteria, onChange, options, value }) {
     return (
         <div className={styles.sortItem}>
-            <h3 className={styles.sortTitle}>{label}</h3>
-
-            <select
-                className={styles.sortSelect}
+            <Dropdown
+                label={label}
+                options={options}
                 value={value}
                 onChange={onChange}
-            >
-                {options.map((opt) => (
-                    <Option
-                        key={opt.value}
-                        value={opt.value}
-                        label={opt.label}
-                        prefix={criteria}
-                    />
-                ))}
-            </select>
+                getLabel={(opt) => opt.label}
+                getValue={(opt) => `${criteria}-${opt.value}`}
+            />
         </div>
     )
 }

@@ -2,6 +2,8 @@ import React, { useEffect } from 'react'
 import styles from "./FilterSortModal.module.scss";
 import Filter from '../Filter';
 import Sort from '../Sort';
+import Button from '../ui/Button';
+import CloseIcon from '../Icons/CloseIcon';
 
 export default function FilterSortModal({
     filters,
@@ -24,13 +26,15 @@ export default function FilterSortModal({
 
             <div className={styles.modal}>
                 <header className={styles.header}>
-                    <h2>Fitler & Sort</h2>
-                    <button
+                    <h2 className={styles.title}>
+                        Fitler & Sort
+                    </h2>
+                    <Button
                         onClick={onClose}
-                        className={styles.closeBtn}
+                        variant='close'
                     >
-                        X
-                    </button>
+                        <CloseIcon />
+                    </Button>
                 </header>
 
                 <div className={styles.body}>

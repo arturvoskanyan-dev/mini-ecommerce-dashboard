@@ -32,10 +32,6 @@
 @media (max-width: v.$tablet) {
     .container {
         display: flex;
-        gap: 32px;
-    }
-
-    .filterSortBtn {
-        display: block;
+        gap: 16px;
     }
 }
