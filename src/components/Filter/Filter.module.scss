@@ -55,8 +55,21 @@
 
 @media (max-width: v.$laptop) {
     .container {
-        padding: 16px;
+        padding: 18px;
         gap: 20px;
         width: 320px;
+    }
+}
+
+@media (max-width: v.$tablet) {
+
+}
+
+@media (max-width: v.$small-tablet) {
+    .container {
+        padding: 0;
+        border: none;
+        max-width: 310px;
+        width: 100%;
     }
 }

@@ -3,7 +3,7 @@
 .productCard {
     // width: 245px;
     width: 100%;
-    min-width: 0;
+    // min-width: 0;
     max-width: 310px;
 
     .title {
@@ -80,5 +80,11 @@
         // max-width: 280px;
         // max-width: 280px;
         // width: 100%;
+    }
+}
+
+@media (max-width: v.$mobile) {
+    .productCard {
+        max-width: 410px;
     }
 }

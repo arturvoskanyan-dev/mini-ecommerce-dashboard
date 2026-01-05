@@ -40,6 +40,7 @@ export default function ProductsPage() {
               sorts={sorts}
               setSorts={setSorts}
               onClose={closeModal}
+              isOpen={isFilterModalOpen}
             />
           </aside>
         )

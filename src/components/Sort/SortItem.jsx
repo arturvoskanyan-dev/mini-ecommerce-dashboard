@@ -1,8 +1,6 @@
 import React from 'react'
 import styles from "./Sort.module.scss";
-import Option from '../ui/Option/Option';
 import Dropdown from '../ui/Dropdown';
-import { SORT_CONFIG } from '../../constants/sortConfig';
 
 export default function SortItem({ label, criteria, onChange, options, value }) {
     return (

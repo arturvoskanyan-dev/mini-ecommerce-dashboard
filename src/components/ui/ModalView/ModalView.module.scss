@@ -1,0 +1,39 @@
+@use "../../../styles/variables.scss" as v;
+
+.overlay {
+    position: fixed;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    z-index: 999;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: white;
+    z-index: 1000;
+    // display: flex;
+    display: none;
+    flex-direction: column;
+    gap: 12px;
+    // padding: 18px;
+    overflow-y: auto;
+}
+
+.cart {
+    right: 0;
+    width: 840px;
+    display: flex;
+    border-top-left-radius: v.$radius-lg;
+}
+
+.filter {
+    display: flex;
+    left: 0;
+    padding: 18px;
+    max-width: 340px;
+    width: 100%;
+    border-top-right-radius: v.$radius-lg;
+}

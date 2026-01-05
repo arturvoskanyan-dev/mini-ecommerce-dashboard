@@ -31,3 +31,15 @@
         border: none;
     }
 }
+
+@media (max-width: v.$small-tablet) {
+    .container {
+        grid-template-columns: repeat(245px, 2fr);
+    }
+}
+
+@media (max-width: v.$mobile) {
+    .container {
+        grid-template-columns: repeat(410px, 1fr);
+    }
+}

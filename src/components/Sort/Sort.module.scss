@@ -52,3 +52,12 @@
         width: 320px;
     }
 }
+
+@media (max-width: v.$tablet) {
+    .sort {
+        padding: 0;
+        max-width: 310px;
+        width: 100%;
+        border: none;
+    }
+}

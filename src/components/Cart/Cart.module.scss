@@ -1,18 +1,11 @@
 @use "../../styles/variables.scss" as v;
 
 .cart {
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: 840px;
     height: 100vh;
-    background-color: white;
-    // padding: 28px;
     padding: 22px;
     display: flex;
     flex-direction: column;
     gap: 24px;
-    z-index: 1000;
 
     .header {
         width: 100%;
@@ -64,4 +57,20 @@
             }
         }
     }
+}
+
+@media (max-width: v.$laptop) {
+
+}
+
+@media (max-width: v.$tablet) {
+    
+}
+
+@media (max-width: v.$small-tablet) {
+    
+}
+
+@media (max-width: v.$mobile) {
+    
 }
