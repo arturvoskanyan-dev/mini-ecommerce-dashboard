@@ -26,8 +26,12 @@
     }
 }
 
-@media (max-width: v.$laptop) {
+@media (max-width: v.$tablet) {
     .title {
-        padding: 0 5px 10px 121px;
+        padding: 0 20px 10px 20px;
+    }
+
+    .header {
+        display: none;
     }
 }

@@ -24,3 +24,18 @@
     color: v.$primary-gray;
     fill: white;
 }
+
+.filterSortBtn {
+    display: none;
+}
+
+@media (max-width: v.$tablet) {
+    .container {
+        display: flex;
+        gap: 32px;
+    }
+
+    .filterSortBtn {
+        display: block;
+    }
+}

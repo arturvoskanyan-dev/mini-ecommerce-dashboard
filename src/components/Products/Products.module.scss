@@ -1,32 +1,33 @@
 @use "../../styles/variables.scss" as v;
 
 .container {
-    // padding: 28px;
     width: 100%;
     padding: 22px;
-    display: flex;
-    flex-wrap: wrap;
-    // gap: 12px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(245px, 1fr));
     gap: 16px;
+
     border: 1px solid v.$primary-white;
     border-bottom-left-radius: v.$radius-lg;
     border-bottom-right-radius: v.$radius-lg;
 }
 
-// .container {
-//     // padding: 28px;
-//     padding: 22px;
-//     display: grid;
-//     grid-template-columns: repeat(5, 1fr);
-//     gap: 16px;
-//     border: 1px solid v.$primary-white;
-//     border-bottom-left-radius: v.$radius-lg;
-//     border-bottom-right-radius: v.$radius-lg;
-// }
-
 @media (max-width: v.$laptop) {
+    // .container {
+    //     padding: 16px;
+    //     gap: 12px;
+    // }
+
     .container {
-        padding: 16px;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
         gap: 12px;
+        padding: 16px;
+    }
+}
+
+@media (max-width: v.$tablet) {
+    .container {
+        padding-top: 100px;
+        border: none;
     }
 }

@@ -13,6 +13,11 @@
     gap: 24px;
 }
 
+.content {
+    width: 100%;
+    min-width: 0;
+}
+
 .productsControls {
     // padding: 28px;
     // width: 100%;
@@ -32,5 +37,14 @@
 @media (max-width: v.$tablet) {
     .filtersSidebar {
         display: none;
+    }
+
+    .productsControls {
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        border: none;
+        border-bottom: 2px solid v.$primary-white;
     }
 }
