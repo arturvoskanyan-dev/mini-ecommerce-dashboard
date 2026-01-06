@@ -1,16 +1,34 @@
-# React + Vite
+### Mini E-commerce Product Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Mini E, commerce Product Dashboard A ReactJS responsive dashboard for an online store, where users can browse products, search, filter, sort, and manage a shopping cart with the help of Redux Toolkit.
 
-Currently, two official plugins are available:
+### Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Product data is fetched from Fake Store API using the Fetch API.
+- Responsive product cards layout for desktop and mobile.
+- Have the ability to add and remove products from your shopping cart.
+- Shopping cart state management is implemented via RTK.
+- Search function will provide different types of search matches,
+    - Exact match
+    - Title starts with match
+    - Title contains match
+    - Category match
+- Sort by price and title.
+- Cart state is persisted in local storage.
+- Proper handling of loading and error states.
 
-## React Compiler
+### To Run The Application
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+1. Clone the repository
+2. Install dependencies: `npm install`
+3. Start the app: `npm run dev`
+4. Open http://localhost:5173 in your browser
 
-## Expanding the ESLint configuration
+### Notes
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- The components created are reusable and modular.
+- All filtering, sorting, and cart logic has been separated into its own utility functions and Redux slices.
+- Used hooks such as useMemo, memo, and useCallback to improve rendering performance.
+- The entire layout is fully responsive due to the use of CSS Grid and Flexbox.
+- Cart state will persist even through page refreshes as it’s stored in local storage.
+- Each individual product will have its own URL for the product detail page.
