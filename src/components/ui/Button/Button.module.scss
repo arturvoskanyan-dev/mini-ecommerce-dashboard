@@ -100,5 +100,81 @@
 @media (max-width: v.$tablet) {
     .openFilter {
         display: block;
+        padding: 6px;
+    }
+
+    .cart {
+        padding: 10px;
+    }
+
+    .counter {
+        width: 38px;
+        height: 40px;
+        font-size: v.$font-lg;
+    }
+
+    .close {
+        svg {
+            width: 24px;
+            height: 24px;
+        }
+    }
+
+    .remove {
+        font-size: v.$font-sm;
+        gap: 4px;
+
+        svg {
+            width: 16px;
+            height: 16px;
+        }
+    }
+
+    .checkout {
+        padding: 10px;
+        font-size: v.$font-sm;
+    }
+}
+
+@media (max-width: v.$small-tablet) {
+    .button {
+        border-radius: v.$radius-md;
+    }
+
+    .cart {
+        padding: 8px;
+        font-size: v.$font-sm;
+
+        svg {
+            width: 16px;
+            height: 16px;
+        }
+    }
+
+    .counter {
+        width: 30px;
+        height: 32px;
+        font-size: v.$font-base;
+    }
+
+    .close {
+        svg {
+            width: 20px;
+            height: 20px;
+        }
+    }
+
+    .remove {
+        font-size: v.$font-xs;
+        gap: 4px;
+
+        svg {
+            width: 14px;
+            height: 14px;
+        }
+    }
+
+    .checkout {
+        font-size: v.$font-xs;
     }
 }

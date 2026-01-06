@@ -6,50 +6,116 @@
     height: 150px;
     display: flex;
     flex-direction: row;
+}
 
-    .content {
-        display: flex;
-        flex-direction: row;
+.content {
+    display: flex;
+    flex-direction: row;
+}
+
+.details {
+    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.title {
+    font-size: v.$font-lg;
+}
+
+.itemControls {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: end;
+    gap: 12px;
+}
+
+.quantityControls {
+    padding: 5px 12px;
+    width: 100%;
+    height: 44px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    border-radius: v.$radius-lg;
+    background-color: v.$quantity-bg;
+}
+
+.count {
+    color: v.$primary-orange;
+    font-size: v.$font-lg;
+}
+
+.price {
+    color: v.$primary-gray;
+    font-size: v.$font-lg;
+}
+
+@media (max-width: v.$tablet) {
+    .cartItemCard {
+        padding: 12px;
+        height: 120px;
     }
 
     .details {
+        height: 70px;
+    }
+
+    .title,
+    .count,
+    .price {
+        font-size: v.$font-base;
+    }
+
+    .itemControls {}
+
+    .quantityControls {
+        padding: 10px;
+        height: 34px;
+        gap: 8px;
+    }
+}
+
+@media (max-width: v.$small-tablet) {
+    .cartItemCard {
+        // max-height: 100px;
         height: 100px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
+    }
+
+    .details {
+        height: 50px;
+    }
+
+    .title,
+    .count,
+    .price {
+        font-size: v.$font-sm;
+    }
+
+    .quantityControls {
+        height: 28px;
+        gap: 8px;
+    }
+}
+
+@media (max-width: v.$mobile) {
+    .cartItemCard {
+        align-items: flex-start;
     }
 
     .title {
-        font-size: v.$font-lg;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
     }
 
-    .itemControls {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: end;
-        gap: 12px;
-
-        .quantityControls {
-            padding: 5px 12px;
-            width: 100%;
-            height: 44px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 16px;
-            border-radius: v.$radius-lg;
-            background-color: v.$quantity-bg;
-
-            .count {
-                color: v.$primary-orange;
-                font-size: v.$font-lg;
-            }
-        }
-    }
-
-    .price {
-        color: v.$primary-gray;
-        font-size: v.$font-lg;
+    .quantityControls {
+        padding: 12px 2px;
+        height: 24px;
+        gap: 6px;
     }
 }

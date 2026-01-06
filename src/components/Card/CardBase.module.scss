@@ -107,6 +107,38 @@
     }
 }
 
+@media (max-width: v.$laptop) {
+    .container {
+        padding: 16px;
+    }
+}
+
+@media (max-width: v.$tablet) {
+    .product > .image {
+        max-width: 140px;
+    }
+
+    .cart > .image {
+        max-width: 80px;
+        height: 80px;
+    }
+}
+
+@media (max-width: v.$small-tablet) {
+    .product > .image {
+        max-width: 120px;
+    }
+
+    .cart > .image {
+        max-width: 60px;
+        height: 60px;
+    }
+}
+
+@media (max-width: v.$mobile) {
+
+}
+
 // @media (max-width: v.$tablet) {
 //     .productDetails {
 //         padding: 0;

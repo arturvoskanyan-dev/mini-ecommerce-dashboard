@@ -48,3 +48,13 @@
         border-bottom: 2px solid v.$primary-white;
     }
 }
+
+@media (max-width: v.$small-tablet) {
+    .productsControls {
+        padding: 12px;
+    }
+}
+
+@media (max-width: v.$mobile) {
+
+}

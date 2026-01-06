@@ -12,40 +12,11 @@
     border: 1px solid v.$primary-white;
     border-radius: v.$radius-lg;
 
-    .title {
-        font-size: v.$font-2xl;
-        // font-weight: v.$font-semibold;
-    }
+}
 
-    .sectionContainer {
-        display: flex;
-        flex-direction: column;
-        gap: 18px;
-
-        .sectionTitle {
-            font-size: v.$font-xl;
-        }
-
-        .ratingContent {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-
-            .ratingLabel {
-                font-size: v.$font-base;
-                font-weight: v.$font-semibold;
-            }
-
-            .ratingSelect {
-                padding: 12px 14px;
-                font-size: v.$font-base;
-                border: 1px solid v.$primary-white;
-                border-radius: v.$radius-md;
-                background-color: transparent;
-                outline: none;
-            }
-        }
-    }
+.title {
+    font-size: v.$font-2xl;
+    // font-weight: v.$font-semibold;
 }
 
 .line {
@@ -55,14 +26,24 @@
 
 @media (max-width: v.$laptop) {
     .container {
-        padding: 18px;
+        padding: 16px;
         gap: 20px;
         width: 320px;
     }
 }
 
 @media (max-width: v.$tablet) {
+    .container {
+        padding: 0;
+        max-width: 440px;
+        width: 100%;
+        border: none;
+        gap: 20px;
+    }
 
+    .title {
+        font-size: v.$font-xl;
+    }
 }
 
 @media (max-width: v.$small-tablet) {
@@ -71,5 +52,12 @@
         border: none;
         max-width: 310px;
         width: 100%;
+        gap: 12px;
+    }
+
+    .title {
+        font-size: v.$font-lg;
     }
 }
+
+@media (max-width: v.$mobile) {}

@@ -1,85 +1,103 @@
 @use "../../styles/variables.scss" as v;
 
 .productCard {
-    // width: 245px;
     width: 100%;
-    // min-width: 0;
     max-width: 310px;
+    // min-width: 225px;
+}
 
-    .title {
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        font-size: v.$font-lg;
-    }
+.title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: v.$font-lg;
+}
 
-    .info {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+.info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
-        .price {
-            font-size: v.$font-lg;
-            font-weight: v.$font-medium;
-            color: v.$primary-gray;
-        }
+.price {
+    font-size: v.$font-lg;
+    font-weight: v.$font-medium;
+    color: v.$primary-gray;
+}
 
-        .rating {
-            display: flex;
-            align-items: center;
-            gap: 4px;
-            font-size: v.$font-lg;
-            color: v.$primary-gold;
+.rating {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: v.$font-lg;
+    color: v.$primary-gold;
+}
 
-            .starIcon {
-                width: 20px;
-                height: 20px;
-                color: v.$primary-gold;
-                fill: v.$primary-gold;
-            }
-        }
-    }
+.starIcon {
+    width: 20px;
+    height: 20px;
+    color: v.$primary-gold;
+    fill: v.$primary-gold;
+}
 
-    .quantityControls {
-        padding: 5px 12px;
-        width: 100%;
-        height: 44px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 16px;
-        border-radius: v.$radius-lg;
-        background-color: v.$quantity-bg;
+.quantityControls {
+    padding: 5px 12px;
+    width: 100%;
+    height: 44px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    border-radius: v.$radius-lg;
+    background-color: v.$quantity-bg;
+}
 
-        .count {
-            color: v.$primary-orange;
-            // font-weight: v.$font-semibold;
-            font-size: v.$font-xl;
-            // font-size: v.$font-lg;
-        }
-    }
-
+.count {
+    color: v.$primary-orange;
+    // font-weight: v.$font-semibold;
+    font-size: v.$font-xl;
+    // font-size: v.$font-lg;
 }
 
 @media (max-width: v.$laptop) {
-    .productCard {
-        // width: 225px;
-
-        // .cartBtn {
-        //     padding: 10px;
-        // }
-    }
+    .productCard {}
 }
 
 @media (max-width: v.$tablet) {
+    .title, .price, .rating {
+        font-size: v.$font-base;
+    }
 
+    .count {
+        font-size: v.$font-lg;
+    }
+
+    .starIcon {
+        width: 16px;
+        height: 16px;
+    }
+    
+    .quantityControls {
+        // padding: 3px 8px;
+        padding: 10px;
+        height: 40px;
+    }
 }
 
 @media (max-width: v.$small-tablet) {
-    .productCard {
-        // max-width: 280px;
-        // max-width: 280px;
-        // width: 100%;
+    .title, .price, .rating {
+        font-size: v.$font-sm;
+    }
+
+    .starIcon {
+        width: 14px;
+        height: 14px;
+    }
+
+    .quantityControls {
+        padding: 8px;
+        height: 34px;
+        border-radius: v.$radius-md;
     }
 }
 

@@ -5,9 +5,10 @@
     flex-direction: column;
     gap: 18px;
 
-    .sectionTitle {
-        font-size: v.$font-xl;
-    }
+}
+
+.sectionTitle {
+    font-size: v.$font-xl;
 }
 
 .categoryContainer {
@@ -15,16 +16,46 @@
     flex-wrap: wrap;
     gap: 14px;
 
-    .categoryLabel {
-        font-size: v.$font-lg;
-        font-weight: v.$font-medium;
-        display: flex;
-        gap: 6px;
-        cursor: pointer;
+}
 
-        .checkbox {
-            width: 18px;
-            accent-color: v.$primary-orange;
-        }
+.categoryLabel {
+    font-size: v.$font-lg;
+    font-weight: v.$font-medium;
+    display: flex;
+    gap: 6px;
+    cursor: pointer;
+
+}
+
+.checkbox {
+    width: 18px;
+    accent-color: v.$primary-orange;
+}
+
+@media (max-width: v.$tablet) {
+    .sectionTitle {
+        font-size: v.$font-lg;
+    }
+
+    .categoryLabel {
+        font-size: v.$font-base;
+    }
+
+    .checkbox {
+        width: 16px;
+    }
+}
+
+@media (max-width: v.$small-tablet) {
+    .sectionTitle {
+        font-size: v.$font-base;
+    }
+
+    .categoryLabel {
+        font-size: v.$font-sm;
+    }
+
+    .checkbox {
+        width: 14px;
     }
 }

@@ -31,7 +31,49 @@
 
 @media (max-width: v.$tablet) {
     .container {
+        padding-left: 20px;
         display: flex;
+        justify-content: space-between;
         gap: 16px;
+    }
+
+    .searchInput {
+        max-width: 410px;
+        padding: 10px 30px;
+        font-size: v.$font-sm;
+    }
+
+    .searchIcon {
+        width: 16px;
+        height: 16px;
+    }
+}
+
+@media (max-width: v.$small-tablet) {
+    .searchInput {
+        padding: 8px 20px;
+        font-size: v.$font-sm;
+    }
+
+    .searchIcon {
+        width: 14px;
+        height: 14px;
+        left: 6px;
+    }
+}
+
+@media (max-width: v.$mobile) {
+    .container {
+        padding-left: 0;
+    }
+
+    .searchInput {
+        padding: 6px 20px;
+        font-size: v.$font-xs;
+    }
+
+    .searchIcon {
+        width: 12px;
+        height: 12px;
     }
 }

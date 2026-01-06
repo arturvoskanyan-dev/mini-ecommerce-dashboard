@@ -18,22 +18,58 @@
     display: none;
     flex-direction: column;
     gap: 12px;
-    // padding: 18px;
+    padding: 22px;
     overflow-y: auto;
 }
 
+/* Modal Cart*/
 .cart {
     right: 0;
-    width: 840px;
+    max-width: 840px;
+    width: 100%;
     display: flex;
     border-top-left-radius: v.$radius-lg;
 }
 
+/* Modal Filter */
 .filter {
-    display: flex;
     left: 0;
-    padding: 18px;
     max-width: 340px;
     width: 100%;
     border-top-right-radius: v.$radius-lg;
+}
+
+@media (max-width: v.$laptop) {
+    .modal {
+        padding: 16px;
+    }
+
+    .cart {
+        max-width: 680px;
+    }
+}
+
+@media (max-width: v.$tablet) {
+    .cart {
+        max-width: 640px;
+    }
+
+    .filter {
+        display: flex;
+        max-width: 440px;
+    }
+}
+
+@media (max-width: v.$small-tablet) {
+    .filter {
+        max-width: 340px;
+    }
+}
+
+@media (max-width: v.$mobile) {
+    .cart {
+        // max-width: calc(840px - 10%);
+        // max-width: 380px;
+        border-radius: 0;
+    }
 }

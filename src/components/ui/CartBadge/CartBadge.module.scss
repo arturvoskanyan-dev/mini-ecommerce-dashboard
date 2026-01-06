@@ -17,3 +17,12 @@
     justify-content: center;
     z-index: 2;
 }
+
+@media (max-width: v.$tablet) {
+    .badge {
+        top: -8px;
+        min-width: 14px;
+        width: 16px;
+        height: 16px;
+    }
+}

@@ -2,75 +2,108 @@
 
 .cart {
     height: 100vh;
-    padding: 22px;
+    // padding: 22px;
     display: flex;
     flex-direction: column;
     gap: 24px;
+}
 
-    .header {
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
+.header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
 
-        .title {
-            font-size: v.$font-2xl;
-        }
+.title {
+    font-size: v.$font-2xl;
+}
+
+.content {
+    max-height: 700px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.footer {
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    border: 1px solid v.$primary-white;
+    border-radius: v.$radius-lg;
+}
+
+.totalTitle {
+    font-size: v.$font-2xl;
+}
+
+.total {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.totalRow {
+    display: flex;
+    justify-content: space-between;
+
+    span {
+        font-size: v.$font-lg;
     }
+}
 
-    .content {
-        max-height: 700px;
-        overflow-y: auto;
-        display: flex;
-        flex-direction: column;
-        gap: 12px;
-    }
-
-    .footer {
-        padding: 18px;
-        display: flex;
-        flex-direction: column;
-        gap: 24px;
-        border: 1px solid v.$primary-white;
-        border-radius: v.$radius-lg;
-
-        .totalTitle {
-            font-size: v.$font-2xl;
-        }
-
-        .total {
-            display: flex;
-            flex-direction: column;
-            gap: 24px;
-
-            .totalRow {
-                display: flex;
-                justify-content: space-between;
-
-                span {
-                    font-size: v.$font-lg;
-                }
-            }
-
-            .line {
-                width: 100%;
-                border-bottom: 2px solid v.$primary-white;
-            }
-        }
-    }
+.line {
+    width: 100%;
+    border-bottom: 2px solid v.$primary-white;
 }
 
 @media (max-width: v.$laptop) {
-
+    .cart {
+        // padding: 16px;
+    }
 }
 
 @media (max-width: v.$tablet) {
-    
+    .title, .totalTitle {
+        font-size: v.$font-xl;
+    }
+
+    .footer {
+        padding: 12px;
+        gap: 20px;
+    }
+
+    .total {
+        gap: 20px;
+    }
+
+    .totalRow span {
+        font-size: v.$font-base;
+    }
 }
 
 @media (max-width: v.$small-tablet) {
-    
+    .cart {
+        gap: 12px;
+    }
+
+    .title, .totalTitle {
+        font-size: v.$font-lg;
+    }
+
+    .footer, .total {
+        gap: 12px;
+    }
+
+    .totalRow span {
+        font-size: v.$font-sm;
+    }
 }
 
 @media (max-width: v.$mobile) {
-    
+    .cart {
+        // padding: 12px;
+    }
 }

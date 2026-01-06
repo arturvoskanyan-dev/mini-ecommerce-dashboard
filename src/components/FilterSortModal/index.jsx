@@ -21,7 +21,7 @@ export default function FilterSortModal({
                 onClose={onClose}
                 variant='filter'
             >
-                <div>
+                <>
                     <header className={styles.header}>
                         <h2 className={styles.title}>
                             Fitler & Sort
@@ -45,7 +45,7 @@ export default function FilterSortModal({
                             setSorts={setSorts}
                         />
                     </div>
-                </div>
+                </>
             </ModalView>
         </>
     )

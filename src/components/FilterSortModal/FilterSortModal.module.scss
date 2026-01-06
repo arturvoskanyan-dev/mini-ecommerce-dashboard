@@ -5,8 +5,11 @@
     justify-content: space-between;
 }
 
+.title {
+    font-size: v.$font-2xl;
+}
+
 .body {
-    padding-top: 18px;
     display: flex;
     flex-direction: column;
     gap: 24px;
@@ -15,5 +18,19 @@
 @media (max-width: v.$tablet) {
     .modal, .overlay {
         display: flex;
+    }
+
+    .title {
+        font-size: v.$font-2xl;
+    }
+}
+
+@media (max-width: v.$small-tablet) {
+    .body {
+        padding-top: 0;
+    }
+
+    .title {
+        font-size: v.$font-xl;
     }
 }
