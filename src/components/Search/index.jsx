@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import styles from "./Search.module.scss";
 import SearchIcon from '../Icons/SearchIcon';
 import Button from '../ui/Button';
+import FilterIcon from '../Icons/FilterIcon';
 
 export default function Search({ filters, setFilters, onOpen }) {
     const [query, setQuery] = useState(filters.search);
@@ -37,7 +38,8 @@ export default function Search({ filters, setFilters, onOpen }) {
                 onClick={onOpen}
                 variant='openFilter'
             >
-                Filter & Sort
+                <FilterIcon />
+                <span>Filter & Sort</span>
             </Button>
         </div>
     )

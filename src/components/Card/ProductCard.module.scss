@@ -3,7 +3,6 @@
 .productCard {
     width: 100%;
     max-width: 310px;
-    // min-width: 225px;
 }
 
 .title {
@@ -54,9 +53,7 @@
 
 .count {
     color: v.$primary-orange;
-    // font-weight: v.$font-semibold;
     font-size: v.$font-xl;
-    // font-size: v.$font-lg;
 }
 
 @media (max-width: v.$laptop) {
@@ -78,7 +75,6 @@
     }
     
     .quantityControls {
-        // padding: 3px 8px;
         padding: 10px;
         height: 40px;
     }

@@ -1,9 +1,6 @@
 @use "../../styles/variables.scss" as v;
 
 .layout {
-    // display: flex;
-    // max-width: 1920px;
-    // margin: 0 auto;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -15,7 +12,6 @@
 
 .main  {
     flex: 1;
-    // padding: 0 40px 40px 170px;
     padding: 0 30px 30px 136px;
 }
 
@@ -28,14 +24,12 @@
 
 @media (max-width: v.$laptop) {
     .main {
-        // padding: 0 30px 20px 126px;
         padding: 0 30px 20px 120px;
     }
 }
 
 @media (max-width: v.$tablet) {
     .main {
-        // padding: 0 30px 10px 116px;
         padding: 0 20px 20px 20px;
     }
 }
@@ -48,7 +42,6 @@
 
 @media (max-width: v.$mobile) {
     .main {
-        // padding: 0 20px 10px 100px;
         padding: 12px;
     }
 }

@@ -1,20 +1,40 @@
 @use "../../../styles/variables.scss" as v;
 
 .notFound {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 60px 20px;
-  color: v.$primary-gray;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
 
-  h3 {
+.product h3 {
+    padding: 60px 20px;
+    color: v.$primary-gray;
     font-size: v.$font-xl;
-  }
+}
+
+/* Page */
+.page {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    z-index: 10;
+}
+
+.page h3 {
+    font-size: v.$font-5xl;
+    color: black;
 }
 
 @media (max-width: v.$small-tablet) {
-    .notFound h3 {
+    .product h3 {
         font-size: v.$font-base;
+    }
+
+    .page h3 {
+        font-size: v.$font-2xl;
     }
 }

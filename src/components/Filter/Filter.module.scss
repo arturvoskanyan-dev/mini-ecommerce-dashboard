@@ -1,11 +1,8 @@
 @use "../../styles/variables" as v;
 
 .container {
-    // padding: 28px;
     padding: 22px;
-    // width: 340px;
     width: 340px;
-    // min-height: 400px;
     display: flex;
     flex-direction: column;
     gap: 24px;
@@ -16,7 +13,6 @@
 
 .title {
     font-size: v.$font-2xl;
-    // font-weight: v.$font-semibold;
 }
 
 .line {
@@ -59,5 +55,3 @@
         font-size: v.$font-lg;
     }
 }
-
-@media (max-width: v.$mobile) {}

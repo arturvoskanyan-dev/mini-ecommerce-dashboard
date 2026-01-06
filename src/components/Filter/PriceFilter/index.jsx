@@ -31,20 +31,20 @@ export default memo(function PriceFilter({ min, max, onChange }) {
             <h3 className={styles.sectionTitle}>Price</h3>
             <div className={styles.priceFilter}>
                 <div className={styles.priceContent}>
-                    <PriceInput 
+                    <PriceInput
                         label="From"
                         value={localMin}
                         onChange={(e) => handleChange(e, "min")}
                         onBlur={handleMouseUp}
                     />
-                    <PriceInput 
+                    <PriceInput
                         label="To"
                         value={localMax}
                         onChange={(e) => handleChange(e, "max")}
                         onBlur={handleMouseUp}
                     />
                 </div>
-                <PriceRangeSlider 
+                <PriceRangeSlider
                     min={localMin}
                     max={localMax}
                     onChangeMin={(e) => handleChange(e, "min")}

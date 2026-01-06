@@ -13,12 +13,9 @@ const uiSlice = createSlice({
         },
         closeCart(state) {
             state.isCartOpen = false;
-        },
-        toggleCart(state) {
-            state.isCartOpen = !state.isCartOpen;
         }
     }
 })
 
-export const {openCart, closeCart, toggleCart} = uiSlice.actions;
+export const {openCart, closeCart} = uiSlice.actions;
 export default uiSlice.reducer;

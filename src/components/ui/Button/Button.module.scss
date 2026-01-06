@@ -36,7 +36,6 @@
     height: 44px;
     color: v.$primary-orange;
     font-size: v.$font-xl;
-    // font-weight: v.$font-semibold;
 }
 
 .close {
@@ -54,7 +53,6 @@
 
 .remove {
     justify-content: start;
-    // font-size: v.$font-lg;
     color: v.$primary-gray;
 
     svg {
@@ -91,10 +89,17 @@
 
 .openFilter {
     display: none;
-    min-width: 90px;
+    align-items: center;
+    gap: 4px;
+    min-width: 95px;
     padding: 12px;
     font-size: v.$font-xs;
     border: 1px solid v.$primary-white;
+
+    svg {
+        width: 12px;
+        height: 12px;
+    }
 }
 
 @media (max-width: v.$laptop) {
@@ -106,7 +111,7 @@
 
 @media (max-width: v.$tablet) {
     .openFilter {
-        display: block;
+        display: flex;
         padding: 6px;
     }
 

@@ -5,7 +5,6 @@ const savedCart = JSON.parse(localStorage.getItem("cart")) || [];
 
 const initialState = {
     products: savedCart,
-    totalAmount: 0
 }
 
 const cartSlice = createSlice({
@@ -28,7 +27,7 @@ const cartSlice = createSlice({
             const product = state.products.find((p) => p.id === action.payload);
 
             if(product) {
-                product.count += 1;
+                product.count++;
                 localStorage.setItem("cart", JSON.stringify(state.products));
             }
         },
@@ -36,7 +35,7 @@ const cartSlice = createSlice({
             const product = state.products.find((p) => p.id === action.payload);
 
             if(product && product.count > 1) {
-                product.count -= 1;
+                product.count--;
                 localStorage.setItem("cart", JSON.stringify(state.products));
             }
         },

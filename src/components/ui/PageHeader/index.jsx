@@ -14,9 +14,6 @@ export default function PageHeader() {
         title = `Product / ${selectedProduct?.title || ""}`
     }
 
-    console.log(location);
-    
-
     return (
         <header className={styles.header}>
             <h2 className={styles.title}>

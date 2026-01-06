@@ -6,6 +6,7 @@ import { decrementCartItem, incrementCartItem, removeCart } from '../../store/sl
 import CartHeader from './CartHeader';
 import CartContent from './CartContent';
 import CartFooter from './CartFooter';
+import NotFound from '../ui/NotFound';
 
 export default function Cart() {
     const { products } = useSelector((state) => state.cart);
@@ -37,13 +38,17 @@ export default function Cart() {
             onClick={(e) => e.stopPropagation()}
         >
             <CartHeader onClose={handleCloseCart} />
-
-            <CartContent
-                products={products}
-                onRemove={handleRemoveCart}
-                onIncrement={handleIncrement}
-                onDecrement={handleDecrement}
-            />
+            
+            {
+                products.length > 0
+                    ? <CartContent
+                        products={products}
+                        onRemove={handleRemoveCart}
+                        onIncrement={handleIncrement}
+                        onDecrement={handleDecrement}
+                    />
+                    : <NotFound message='Your cart is empty' />
+            }
 
             <CartFooter subTotal={subTotal} />
         </aside>

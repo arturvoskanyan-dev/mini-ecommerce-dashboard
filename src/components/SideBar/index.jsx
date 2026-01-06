@@ -22,7 +22,9 @@ export default function SideBar() {
 
     return (
         <aside className={styles.sidebar}>
-            <img src='/logo.svg' className={styles.logo} />
+            <NavLink to="/">
+                <img src='/logo.svg' className={styles.logo} />
+            </NavLink>
             <div className={styles.line} />
             <nav className={styles.nav}>
                 <NavLink

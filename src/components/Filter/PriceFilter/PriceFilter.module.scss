@@ -26,12 +26,10 @@
     display: flex;
     flex-direction: column;
     gap: 8px;
-    // align-items: center;
 }
 
 .priceInput {
     padding: 12px 16px;
-    // padding: 10px 14px;
     max-width: 140px;
     font-size: v.$font-base;
     border: 2px solid v.$primary-white;
@@ -62,6 +60,8 @@
 }
 
 .rangeTrackHighlight {
+    max-width: 290px;
+    width: 100%;
     position: absolute;
     height: 6px;
     background-color: v.$primary-orange;
