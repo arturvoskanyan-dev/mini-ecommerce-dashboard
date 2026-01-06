@@ -7,6 +7,8 @@ import { addToCart, decrementCartItem, incrementCartItem } from '../../store/sli
 import searchProducts from '../../utils/searchProducts';
 import sortProducts from '../../utils/sortProducts';
 import filterProducts from '../../utils/filters';
+import Loader from '../ui/Loader';
+import NotFound from '../ui/NotFound';
 
 export default function Products({ filters, sorts }) {
     const { products, loading, error } = useSelector((state) => state.products);
@@ -52,13 +54,15 @@ export default function Products({ filters, sorts }) {
         dispatch(decrementCartItem(id));
     }, [dispatch])
 
-    if (loading) return <div>Loading...</div>
+    if (loading) return <Loader />
     if (error) return <div>Error... {error}</div>
 
     return (
         <div className={styles.container}>
-            {
-                filteredProducts?.map((product) => (
+            {filteredProducts.length === 0 ? (
+                <NotFound />
+            ) : (
+                filteredProducts.map((product) => (
                     <ProductCard
                         key={product.id}
                         product={product}
@@ -68,7 +72,7 @@ export default function Products({ filters, sorts }) {
                         onAddToCart={handleAddToCart}
                     />
                 ))
-            }
+            )}
         </div>
-    )
+    );
 }

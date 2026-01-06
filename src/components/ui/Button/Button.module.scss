@@ -97,6 +97,13 @@
     border: 1px solid v.$primary-white;
 }
 
+@media (max-width: v.$laptop) {
+    .product {
+        max-width: 210px;
+        font-size: v.$font-base;
+    }
+}
+
 @media (max-width: v.$tablet) {
     .openFilter {
         display: block;
@@ -132,6 +139,13 @@
 
     .checkout {
         padding: 10px;
+        font-size: v.$font-sm;
+    }
+
+    .product {
+        max-width: 145px;
+        height: 44px;
+        padding: 4px 10px;
         font-size: v.$font-sm;
     }
 }
@@ -175,6 +189,11 @@
     }
 
     .checkout {
+        font-size: v.$font-xs;
+    }
+
+    .product {
+        height: 36px;
         font-size: v.$font-xs;
     }
 }

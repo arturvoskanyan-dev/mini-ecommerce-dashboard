@@ -1,0 +1,20 @@
+@use "../../../styles/variables.scss" as v;
+
+.notFound {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 20px;
+  color: v.$primary-gray;
+
+  h3 {
+    font-size: v.$font-xl;
+  }
+}
+
+@media (max-width: v.$small-tablet) {
+    .notFound h3 {
+        font-size: v.$font-base;
+    }
+}

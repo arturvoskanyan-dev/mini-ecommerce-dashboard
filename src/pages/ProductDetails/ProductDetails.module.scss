@@ -114,20 +114,22 @@
     font-size: v.$font-lg;
 }
 
-@media (max-width: v.$tablet) {
-    .title {
+// @media (max-width: v.$laptop) {
+
+// }
+
+@media (max-width: v.$laptop) {
+
+    .title,
+    .ratingContent,
+    .deliveryDescription {
         font-size: v.$font-xl;
     }
 
-    .ratingContent {
-        font-size: v.$font-base;
-    }
-
-    .price {
-        font-size: v.$font-lg;
-    }
-
-    .description {
+    .price,
+    .description,
+    .count,
+    .deliveryTitle {
         font-size: v.$font-lg;
     }
 
@@ -142,10 +144,6 @@
         height: 34px;
     }
 
-    .count {
-        font-size: v.$font-lg;
-    }
-
     .productBtn {
         padding: 12px 40px;
         font-size: v.$font-base;
@@ -157,26 +155,88 @@
         gap: 8px;
     }
 
+    .starIcon {
+        width: 20px;
+        height: 20px;
+    }
+
     .deliveryIcon {
         // width: 30px;
         // height: 30px;
     }
+}
 
-    .deliveryTitle {
+@media (max-width: v.$tablet) {
+
+    .title,
+    .ratingContent,
+    .deliveryDescription {
         font-size: v.$font-lg;
     }
 
+    .price,
+    .description,
+    .count,
+    .deliveryTitle {
+        font-size: v.$font-base;
+    }
+
+    .productBtn {
+        padding: 12px 40px;
+        font-size: v.$font-sm;
+    }
+
+    .starIcon {
+        width: 16px;
+        height: 16px;
+    }
+
+    .deliveryIcon {
+        // width: 24px;
+        // height: 24px;
+    }
+
+    .quantityControls {
+        max-width: 140px;
+    }
+}
+
+@media (max-width: v.$small-tablet) {
+
+    .title,
+    .ratingContent,
     .deliveryDescription {
         font-size: v.$font-base;
+    }
+
+    .price,
+    .description,
+    .count,
+    .deliveryTitle {
+        font-size: v.$font-sm;
+    }
+
+    .productBtn {
+        padding: 12px 40px;
+        font-size: v.$font-xs;
+    }
+
+    .starIcon {
+        width: 14px;
+        height: 14px;
+    }
+
+    .quantityControls {
+        height: 36px;
     }
 }
 
 @media (max-width: v.$mobile) {
     .productControls {
-        flex-direction: column;
+        // flex-direction: column;
     }
 
     .quantityControls {
-        max-width: 310px;
+        // max-width: 310px;
     }
 }

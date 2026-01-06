@@ -1,0 +1,49 @@
+@use "../../../styles/variables.scss" as v;
+
+.loaderOverlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.6);
+  z-index: 2000;
+}
+
+.loader {
+    // width: 32px;
+    width: 60px;
+    padding: 6px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: v.$primary-orange;
+
+    --_m:
+        conic-gradient(#0000 10%, #000),
+        linear-gradient(#000 0 0) content-box;
+
+    -webkit-mask: var(--_m);
+    mask: var(--_m);
+    -webkit-mask-composite: source-out;
+    mask-composite: subtract;
+
+    animation: spin 1s infinite linear;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(1turn);
+    }
+}
+
+@media (max-width: v.$tablet) {
+    .loader {
+        width: 50px;
+    }
+}
+
+@media (max-width: v.$mobile) {
+    .loader {
+        width: 40px;
+    }
+}
