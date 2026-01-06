@@ -55,7 +55,7 @@ export default function Products({ filters, sorts }) {
     }, [dispatch])
 
     if (loading) return <Loader />
-    if (error) return <div>Error... {error}</div>
+    if (error) return <NotFound message={`Error: ${error}`} variant='error' />
 
     return (
         <div className={styles.container}>

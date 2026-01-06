@@ -8,6 +8,7 @@
     gap: 16px;
 
     border: 1px solid v.$primary-white;
+    border-top: none;
     border-bottom-left-radius: v.$radius-lg;
     border-bottom-right-radius: v.$radius-lg;
 }

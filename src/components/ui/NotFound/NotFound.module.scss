@@ -5,12 +5,12 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    font-size: v.$font-2xl;
 }
 
 .product h3 {
     padding: 60px 20px;
     color: v.$primary-gray;
-    font-size: v.$font-xl;
 }
 
 /* Page */
@@ -29,9 +29,15 @@
     color: black;
 }
 
+/* Error */
+.error {
+    padding-top: 120px;
+    color: red;
+}
+
 @media (max-width: v.$small-tablet) {
-    .product h3 {
-        font-size: v.$font-base;
+    .product h3, .error h3 {
+        font-size: v.$font-xl;
     }
 
     .page h3 {
