@@ -2,7 +2,7 @@ export default function searchProducts(products, searchInput) {
     if (!searchInput.trim()) return products;
 
     const search = searchInput.trim().toLowerCase();
-    const exactMathces = []; // exact title match
+    const exactMatches = []; // exact title match
     const titleStartsWithMatches = []; // title starts with search
     const titleContainsMatches = []; // title contains search
     const categoryMatches = []; // category contains search
@@ -13,7 +13,7 @@ export default function searchProducts(products, searchInput) {
 
         // exact match
         if (titleLower === search) {
-            exactMathces.push(product)
+            exactMatches.push(product)
             continue;
         }
 
@@ -36,7 +36,7 @@ export default function searchProducts(products, searchInput) {
     }
 
     return [
-        ...exactMathces,
+        ...exactMatches,
         ...titleStartsWithMatches,
         ...titleContainsMatches,
         ...categoryMatches

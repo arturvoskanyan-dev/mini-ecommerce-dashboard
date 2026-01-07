@@ -16,10 +16,6 @@
 }
 
 @media (max-width: v.$tablet) {
-    .modal, .overlay {
-        display: flex;
-    }
-
     .title {
         font-size: v.$font-2xl;
     }

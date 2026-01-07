@@ -1,6 +1,4 @@
 export default function sortProducts(products, sorts) {
-    // if(!Array.isArray(products)) return [];
-
     return [...products].sort((a, b) => {
         for (const sort of sorts) {
             if (!sort.enabled) continue;

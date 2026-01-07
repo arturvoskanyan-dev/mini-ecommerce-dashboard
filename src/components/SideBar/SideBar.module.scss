@@ -2,9 +2,7 @@
 
 .sidebar {
     position: fixed;
-    // padding: 28px;
     padding: 4px 22px;
-    // width: 130px;
     width: 110px;
     height: 100vh;
     display: flex;
@@ -16,9 +14,6 @@
 }
 
 .logo {
-    // width: 86px;
-    // height: 86px;
-
     width: 76px;
     height: 76px;
     object-fit: contain;
@@ -83,26 +78,6 @@
         padding: 4px 18px;
     }
 }
-
-// @media (max-width: v.$tablet) {
-//     .sidebar {
-//         // width: 80px;
-//         // padding: 4px 16px;
-//         // display: none;
-//         // top: 0;
-//         flex-direction: row;
-//     }
-
-//     .logo {
-//         width: 60px;
-//         height: 60px;
-//     }
-
-//     .navItem {
-//         width: 48px;
-//         height: 48px;
-//     }
-// }
 
 @media (max-width: v.$tablet) {
     .sidebar {

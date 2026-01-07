@@ -7,7 +7,7 @@ export default function ModalView({
     variant = "cart",
     children
 }) {
-    // slide-out with overlay and scroll lock
+    // lock body scroll when modal is open and restore on close
     useEffect(() => {
         document.body.style.overflow = isOpen
             ? "hidden"

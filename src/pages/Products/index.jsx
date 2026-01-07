@@ -18,7 +18,6 @@ export default function ProductsPage() {
     minPrice: 0,
     maxPrice: 1000,
     minRating: 0,
-    sort: ""
   })
 
   const openModal = useCallback(() => {

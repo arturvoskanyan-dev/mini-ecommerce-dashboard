@@ -14,11 +14,6 @@
 }
 
 @media (max-width: v.$laptop) {
-    // .container {
-    //     padding: 16px;
-    //     gap: 12px;
-    // }
-
     .container {
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
         gap: 12px;

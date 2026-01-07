@@ -5,7 +5,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    font-size: v.$font-2xl;
+    font-size: v.$font-xl;
 }
 
 .product h3 {
@@ -37,7 +37,7 @@
 
 @media (max-width: v.$small-tablet) {
     .product h3, .error h3 {
-        font-size: v.$font-xl;
+        font-size: v.$font-lg;
     }
 
     .page h3 {
